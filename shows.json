@@ -1,0 +1,444 @@
+{
+  "venue": "Balcony Music Club",
+  "month": "June 2026",
+  "title": "Upcoming Shows",
+  "subtitle": "June 2026 • Balcony Music Club",
+  "shows": [
+    {
+      "date": "Wednesday • June 3",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "TROPICAL WEATHER",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "FELIPE ANTIONIO MUSIC",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • June 4",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JOHN LISI & DELTA FUNK",
+          "photo": "https://static.wixstatic.com/media/b5ba73_311c72296f4c425dbe4d8f44b321133e~mv2.jpg/v1/fill/w_900%2Ch_900%2Cal_c%2Cq_85%2Cenc_auto/b5ba73_311c72296f4c425dbe4d8f44b321133e~mv2.jpg",
+          "alt": "John Lisi and Delta Funk promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "JAM BRASS BAND",
+          "photo": "https://www.wwoz.org/sites/default/files/styles/default_more_1x/public/images/more/act/jam_brass_band_0.jpg?itok=tPKmLOEf",
+          "alt": "J.A.M Brass Band promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • June 5",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "COVERTONES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & THE R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • June 6",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "WOODYS RAMPAGE",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "CAESAR BROTHERS",
+          "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Freret_Street_Festival_2013_Caesar_Brothers_Band_George_Sartin.jpg/960px-Freret_Street_Festival_2013_Caesar_Brothers_Band_George_Sartin.jpg",
+          "alt": "Caesar Brothers Band promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • June 7",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "SIERRA & GREEN NOTES",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green and the Green Notes promo photo",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/661584636_122124829305154986_7099903961615799520_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=MBKjeaKpb04Q7kNvwELs9Su&_nc_oc=AdpM3JwD1YU7ZqiYvTpf2a9V78VR37D_hDW976pg8AyJgoclzarDuDz4fNrAuoYiSvw&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ZhryH7x2ikSmGSoSbxPfKQ&_nc_ss=7a389&oh=00_Af11AFjp3FKczCRZVilQCSD5n78P59uwHmKdVDpOa1utKA&oe=69D8D34C",
+          "alt": "Maurice Cade and ESS promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM INDA WIND BAND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Wednesday • June 10",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "RUMPSHAKERS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "UNDER THE COVERS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • June 11",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "DAPPER DANDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "JAM BRASS BAND",
+          "photo": "https://www.wwoz.org/sites/default/files/styles/default_more_1x/public/images/more/act/jam_brass_band_0.jpg?itok=tPKmLOEf",
+          "alt": "J.A.M Brass Band promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • June 12",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "TROPICAL WEATHER",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • June 13",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "SIERRA GREEN",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • June 14",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "DEEJ FLAVA & MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/661584636_122124829305154986_7099903961615799520_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=MBKjeaKpb04Q7kNvwELs9Su&_nc_oc=AdpM3JwD1YU7ZqiYvTpf2a9V78VR37D_hDW976pg8AyJgoclzarDuDz4fNrAuoYiSvw&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ZhryH7x2ikSmGSoSbxPfKQ&_nc_ss=7a389&oh=00_Af11AFjp3FKczCRZVilQCSD5n78P59uwHmKdVDpOa1utKA&oe=69D8D34C",
+          "alt": "Maurice Cade and ESS promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM INDA WIND BAND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Wednesday • June 17",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "SUGAR & THE DADDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "DECATUR RADIO",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • June 18",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JOHN LISI & DELTA FUNK",
+          "photo": "https://static.wixstatic.com/media/b5ba73_311c72296f4c425dbe4d8f44b321133e~mv2.jpg/v1/fill/w_900%2Ch_900%2Cal_c%2Cq_85%2Cenc_auto/b5ba73_311c72296f4c425dbe4d8f44b321133e~mv2.jpg",
+          "alt": "John Lisi and Delta Funk promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • June 19",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JOSH BENITEZ BAND",
+          "photo": "https://f4.bcbits.com/img/0019269648_10.jpg",
+          "alt": "Josh Benitez promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & THE R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • June 20",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "T MARIE",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • June 21",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "SIERRA & GREEN NOTES",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green and the Green Notes promo photo",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "SUGAR & THE DADDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "JAM BRASS BAND",
+          "photo": "https://www.wwoz.org/sites/default/files/styles/default_more_1x/public/images/more/act/jam_brass_band_0.jpg?itok=tPKmLOEf",
+          "alt": "J.A.M Brass Band promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Wednesday • June 24",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "RUMPSHAKERS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "UNDER COVERS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • June 25",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "DAPPER DANDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • June 26",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JOSH BENITEZ BAND",
+          "photo": "https://f4.bcbits.com/img/0019269648_10.jpg",
+          "alt": "Josh Benitez promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & THE R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • June 27",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "SIERRA GREEN",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • June 28",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "DEEJ FLAVA & MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/661584636_122124829305154986_7099903961615799520_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=MBKjeaKpb04Q7kNvwELs9Su&_nc_oc=AdpM3JwD1YU7ZqiYvTpf2a9V78VR37D_hDW976pg8AyJgoclzarDuDz4fNrAuoYiSvw&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ZhryH7x2ikSmGSoSbxPfKQ&_nc_ss=7a389&oh=00_Af11AFjp3FKczCRZVilQCSD5n78P59uwHmKdVDpOa1utKA&oe=69D8D34C",
+          "alt": "Maurice Cade and ESS promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM INDA WIND BAND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    }
+  ]
+}

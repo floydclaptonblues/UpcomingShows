@@ -1,0 +1,45 @@
+<!-- Balcony Music Club Upcoming Shows: Bandzoogle HTML Code feature snippet
+     Replace YOUR-GITHUB-USERNAME after the repo is published. -->
+
+<div id="bmc-upcoming-shows-embed"></div>
+
+<script>
+(function () {
+  const githubPagesUrl = "https://YOUR-GITHUB-USERNAME.github.io/bmc-upcoming-shows/";
+  const allowedOrigin = "https://YOUR-GITHUB-USERNAME.github.io";
+
+  const holder = document.getElementById("bmc-upcoming-shows-embed");
+  const iframe = document.createElement("iframe");
+
+  iframe.src = githubPagesUrl;
+  iframe.title = "Balcony Music Club Upcoming Shows";
+  iframe.loading = "lazy";
+  iframe.scrolling = "no";
+  iframe.style.width = "100%";
+  iframe.style.maxWidth = "100%";
+  iframe.style.border = "0";
+  iframe.style.display = "block";
+  iframe.style.minHeight = "900px";
+  iframe.style.overflow = "hidden";
+
+  holder.appendChild(iframe);
+
+  window.addEventListener("message", function (event) {
+    if (event.origin !== allowedOrigin) return;
+    if (!event.data || event.data.source !== "bmc-upcoming-shows") return;
+
+    const nextHeight = Number(event.data.height);
+    if (Number.isFinite(nextHeight) && nextHeight > 500) {
+      iframe.style.height = (nextHeight + 8) + "px";
+    }
+  });
+})();
+</script>
+
+<noscript>
+  <iframe
+    src="https://YOUR-GITHUB-USERNAME.github.io/bmc-upcoming-shows/"
+    title="Balcony Music Club Upcoming Shows"
+    style="width:100%;min-height:5200px;border:0;display:block;"
+  ></iframe>
+</noscript>
