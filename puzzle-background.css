@@ -3,7 +3,7 @@
 
 .bmc-mosaic {
   position: fixed;
-  inset: -16vmax;
+  inset: -18vmax;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
@@ -11,22 +11,22 @@
     radial-gradient(circle at 18% 12%, rgba(255, 79, 216, .30), transparent 34rem),
     radial-gradient(circle at 82% 20%, rgba(0, 246, 255, .28), transparent 34rem),
     radial-gradient(circle at 50% 100%, rgba(255, 216, 77, .20), transparent 38rem),
-    linear-gradient(180deg, #14051f, #050613);
+    #050613;
 }
 
-/* Static fallback, visible even before the JavaScript-built moving tiles finish loading. */
+/* Static fallback/base: use the vertical Jazz Fest cart photo, not the wide BMC banner. */
 .bmc-mosaic::before {
   content: "";
   position: absolute;
-  inset: -12%;
+  inset: -10%;
   background:
-    linear-gradient(180deg, rgba(5, 6, 19, .02), rgba(5, 6, 19, .18)),
-    url("assets/background/bmc-collage.webp") center / max(135vw, 135vh) no-repeat,
+    linear-gradient(180deg, rgba(5, 6, 19, .00), rgba(5, 6, 19, .12)),
+    url("assets/background/bmc-jazzfest-cart.jpg") center center / cover no-repeat,
     radial-gradient(circle at 15% 15%, rgba(255,255,255,.14), transparent 18rem),
     radial-gradient(circle at 82% 20%, rgba(255,216,77,.15), transparent 18rem),
     radial-gradient(circle at 50% 100%, rgba(255,79,216,.15), transparent 22rem);
-  filter: blur(1px) saturate(1.32) brightness(1.16);
-  opacity: .82;
+  filter: saturate(1.35) brightness(1.15) contrast(1.05);
+  opacity: .86;
 }
 
 /* Keep the schedule/card system in front of the moving background. */
@@ -38,11 +38,11 @@
 /* Replace the old fixed GIF pseudo-background with a lighter readability veil. */
 .bmc-shell::before {
   background:
-    linear-gradient(180deg, rgba(4, 6, 18, .06), rgba(6, 6, 18, .28)),
-    radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 36rem) !important;
+    linear-gradient(180deg, rgba(4, 6, 18, .04), rgba(6, 6, 18, .22)),
+    radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 36rem) !important;
   background-image:
-    linear-gradient(180deg, rgba(4, 6, 18, .06), rgba(6, 6, 18, .28)),
-    radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 36rem) !important;
+    linear-gradient(180deg, rgba(4, 6, 18, .04), rgba(6, 6, 18, .22)),
+    radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 36rem) !important;
   opacity: 1 !important;
   transform: none !important;
   pointer-events: none;
@@ -51,23 +51,17 @@
 
 .bmc-shell::after {
   background:
-    linear-gradient(180deg, rgba(5,6,19,.02), rgba(5,6,19,.08) 24%, rgba(5,6,19,.24) 100%) !important;
+    linear-gradient(180deg, rgba(5,6,19,.00), rgba(5,6,19,.05) 24%, rgba(5,6,19,.18) 100%) !important;
   z-index: 2 !important;
 }
 
 .bmc-mosaic-tile {
   position: absolute;
-  overflow: hidden;
+  overflow: visible;
   border-radius: clamp(12px, 1.8vw, 22px);
-  border: 1px solid rgba(255,255,255,.24);
-  background:
-    radial-gradient(circle at 50% 30%, rgba(255,255,255,.10), transparent 60%),
-    rgba(0,0,0,.18);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.10) inset,
-    0 12px 28px rgba(0,0,0,.28),
-    0 0 28px rgba(255,79,216,.20),
-    0 0 24px rgba(0,246,255,.20);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   transition:
     top 2.4s cubic-bezier(.22,.61,.36,1),
     left 2.4s cubic-bezier(.22,.61,.36,1),
@@ -76,44 +70,63 @@
     transform 2.4s cubic-bezier(.22,.61,.36,1),
     opacity .6s ease;
   will-change: top, left, width, height, transform;
-  opacity: .80;
-  backdrop-filter: blur(.5px);
-  -webkit-backdrop-filter: blur(.5px);
+  opacity: .86;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.bmc-mosaic-tile::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle, #fff8c7 0 26%, #ffcc33 28% 48%, transparent 50%) top left / 22px 11px repeat-x,
+    radial-gradient(circle, #fff8c7 0 26%, #ffcc33 28% 48%, transparent 50%) bottom left / 22px 11px repeat-x,
+    radial-gradient(circle, #fff8c7 0 26%, #ffcc33 28% 48%, transparent 50%) top left / 11px 22px repeat-y,
+    radial-gradient(circle, #fff8c7 0 26%, #ffcc33 28% 48%, transparent 50%) top right / 11px 22px repeat-y;
+  filter:
+    drop-shadow(0 0 3px #ffcc33)
+    drop-shadow(0 0 8px rgba(255, 138, 0, .7))
+    drop-shadow(0 0 12px rgba(255, 79, 216, .25));
+  opacity: .74;
+  pointer-events: none;
 }
 
 .bmc-mosaic-tile::after {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.04)),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.024) 0,
-      rgba(255,255,255,.024) 1px,
-      transparent 1px,
-      transparent 4px
-    );
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.02));
   mix-blend-mode: screen;
   pointer-events: none;
 }
 
 .bmc-mosaic-tile.is-accent {
-  opacity: .92;
+  opacity: .98;
 }
 
-/* No crop: each picture/GIF is contained inside an uneven puzzle piece. */
+/* Background tiles are decorative, so cover removes the plain letterbox rectangles. */
 .bmc-mosaic-media {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   display: block;
-  filter: saturate(1.34) contrast(1.08) brightness(1.16);
+  border-radius: inherit;
+  filter: saturate(1.36) contrast(1.08) brightness(1.18);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 22px rgba(255,79,216,.16),
+    0 0 18px rgba(0,246,255,.14);
+  animation: bmc-media-drift var(--media-duration, 18s) ease-in-out infinite alternate;
+  transform-origin: center;
 }
 
 .bmc-mosaic-tile.is-gif .bmc-mosaic-media {
-  filter: saturate(1.38) contrast(1.08) brightness(1.18);
+  filter: saturate(1.42) contrast(1.1) brightness(1.22);
 }
 
 .bmc-mosaic-tile.is-pixel,
@@ -126,6 +139,12 @@
   animation-delay: var(--float-delay, 0s);
 }
 
+@keyframes bmc-media-drift {
+  0% { transform: scale(1.02) translate3d(-1.2%, -.8%, 0); }
+  50% { transform: scale(1.07) translate3d(1.1%, .9%, 0); }
+  100% { transform: scale(1.04) translate3d(-.5%, 1.3%, 0); }
+}
+
 @keyframes bmc-tile-float {
   0% { filter: saturate(1.2) brightness(1.08); }
   50% { filter: saturate(1.36) brightness(1.22); }
@@ -134,35 +153,42 @@
 
 @media (max-width: 720px) {
   .bmc-mosaic {
-    inset: -20vmax;
+    inset: -22vmax;
   }
 
   .bmc-mosaic-tile {
-    opacity: .62;
+    opacity: .70;
     border-radius: 12px;
   }
 
   .bmc-mosaic-tile.is-accent {
-    opacity: .74;
+    opacity: .82;
+  }
+
+  .bmc-mosaic-tile::before {
+    inset: -4px;
+    background-size: 16px 8px, 16px 8px, 8px 16px, 8px 16px;
+    opacity: .62;
   }
 
   .bmc-shell::before {
     background:
-      linear-gradient(180deg, rgba(4, 6, 18, .14), rgba(6, 6, 18, .48)),
-      radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 28rem) !important;
+      linear-gradient(180deg, rgba(4, 6, 18, .10), rgba(6, 6, 18, .42)),
+      radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 28rem) !important;
     background-image:
-      linear-gradient(180deg, rgba(4, 6, 18, .14), rgba(6, 6, 18, .48)),
-      radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 28rem) !important;
+      linear-gradient(180deg, rgba(4, 6, 18, .10), rgba(6, 6, 18, .42)),
+      radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 28rem) !important;
   }
 
   .bmc-shell::after {
     background:
-      linear-gradient(180deg, rgba(5,6,19,.06), rgba(5,6,19,.22) 28%, rgba(5,6,19,.54) 100%) !important;
+      linear-gradient(180deg, rgba(5,6,19,.04), rgba(5,6,19,.18) 28%, rgba(5,6,19,.44) 100%) !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bmc-mosaic-tile {
+  .bmc-mosaic-tile,
+  .bmc-mosaic-media {
     transition-duration: .001ms !important;
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
