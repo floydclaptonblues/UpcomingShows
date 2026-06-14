@@ -1,0 +1,94 @@
+.bmc-site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: min(1160px, calc(100% - 24px));
+  margin: 0 auto clamp(14px, 2.2vw, 24px);
+  padding: 10px;
+  border: 1px solid rgba(255, 216, 77, .32);
+  border-radius: 999px;
+  background: rgba(5, 7, 20, .76);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .08) inset,
+    0 0 22px rgba(255, 216, 77, .12),
+    0 10px 26px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bmc-site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bmc-site-nav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.bmc-site-nav a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 14px;
+  border: 1px solid rgba(143, 232, 255, .26);
+  border-radius: 999px;
+  color: #fff4c2;
+  background:
+    linear-gradient(180deg, rgba(88, 18, 135, .72), rgba(13, 19, 55, .78));
+  font-family: var(--bmc-title-font);
+  font-size: clamp(14px, 2.2vw, 22px);
+  line-height: 1;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(255, 216, 77, .42);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 0 10px rgba(255,79,216,.12);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.bmc-site-nav a:hover,
+.bmc-site-nav a:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 216, 77, .78);
+  box-shadow:
+    0 0 0 1px rgba(255,216,77,.22) inset,
+    0 0 16px rgba(255,216,77,.34),
+    0 0 22px rgba(255,79,216,.22);
+  outline: none;
+}
+
+.bmc-site-nav a[aria-current="page"] {
+  color: #081225;
+  border-color: rgba(255, 216, 77, .92);
+  background: linear-gradient(180deg, #fff4a8, #ffd84d);
+  text-shadow: none;
+}
+
+@media (max-width: 720px) {
+  .bmc-site-nav {
+    top: 6px;
+    width: calc(100% - 16px);
+    margin-bottom: 14px;
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .bmc-site-nav__inner {
+    justify-content: flex-start;
+  }
+
+  .bmc-site-nav a {
+    min-height: 34px;
+    padding: 7px 12px;
+  }
+}
