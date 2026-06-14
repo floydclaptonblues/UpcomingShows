@@ -11,30 +11,31 @@
 
 .bmc-mosaic {
   position: fixed;
-  inset: -6vmax;
+  inset: -7vmax;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(5,6,19,.12), rgba(5,6,19,.34)),
+    linear-gradient(180deg, rgba(5,6,19,.05), rgba(5,6,19,.20)),
     url("./assets/background/bmc-jazzfest-cart.jpg") center center / cover no-repeat,
     linear-gradient(180deg, #09051a, #050613);
+  background-attachment: fixed, fixed, fixed;
 }
 
 .bmc-mosaic::before {
   content: "";
   position: absolute;
-  inset: -5%;
+  inset: -7%;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 79, 216, .18), transparent 24rem),
-    radial-gradient(circle at 82% 20%, rgba(0, 246, 255, .18), transparent 24rem),
-    radial-gradient(circle at 50% 100%, rgba(255, 216, 77, .16), transparent 30rem);
-  filter: blur(10px);
+    radial-gradient(circle at 18% 12%, rgba(255, 79, 216, .24), transparent 25rem),
+    radial-gradient(circle at 82% 20%, rgba(0, 246, 255, .20), transparent 25rem),
+    radial-gradient(circle at 50% 100%, rgba(255, 216, 77, .24), transparent 32rem);
+  filter: blur(8px);
 }
 
 .bmc-shell::before {
   background:
-    linear-gradient(180deg, rgba(4, 6, 18, .08), rgba(6, 6, 18, .28)),
+    linear-gradient(180deg, rgba(4, 6, 18, .02), rgba(6, 6, 18, .16)),
     radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 36rem) !important;
   opacity: 1 !important;
   transform: none !important;
@@ -44,20 +45,21 @@
 
 .bmc-shell::after {
   background:
-    linear-gradient(180deg, rgba(5,6,19,.03), rgba(5,6,19,.12) 24%, rgba(5,6,19,.26) 100%) !important;
+    linear-gradient(180deg, rgba(5,6,19,.02), rgba(5,6,19,.08) 24%, rgba(5,6,19,.18) 100%) !important;
   z-index: 2 !important;
 }
 
 .bmc-mosaic-tile {
   position: absolute;
   overflow: hidden;
-  border-radius: clamp(12px, 1.8vw, 22px);
+  border-radius: clamp(14px, 2.1vw, 26px);
   background: transparent;
   border: none;
   box-shadow:
-    0 10px 24px rgba(0,0,0,.22),
-    0 0 24px rgba(255,79,216,.14),
-    0 0 20px rgba(0,246,255,.14);
+    0 14px 30px rgba(0,0,0,.26),
+    0 0 30px rgba(255,79,216,.20),
+    0 0 26px rgba(0,246,255,.18),
+    0 0 0 1px rgba(255,216,77,.20);
   transition:
     top 2.4s cubic-bezier(.22,.61,.36,1),
     left 2.4s cubic-bezier(.22,.61,.36,1),
@@ -66,11 +68,11 @@
     transform 2.4s cubic-bezier(.22,.61,.36,1),
     opacity .6s ease;
   will-change: top, left, width, height, transform;
-  opacity: .74;
+  opacity: .82;
 }
 
 .bmc-mosaic-tile.is-accent {
-  opacity: .88;
+  opacity: .96;
 }
 
 .bmc-mosaic-media {
@@ -79,11 +81,11 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  filter: saturate(1.14) contrast(1.05) brightness(1.02);
+  filter: saturate(1.22) contrast(1.07) brightness(1.08);
 }
 
 .bmc-mosaic-tile.is-gif .bmc-mosaic-media {
-  filter: saturate(1.20) contrast(1.04) brightness(1.04);
+  filter: saturate(1.28) contrast(1.08) brightness(1.10);
 }
 
 .bmc-mosaic-tile.is-pixel,
@@ -98,29 +100,34 @@
 
 @keyframes bmc-tile-float {
   0% { transform: translateY(0px) rotate(var(--tile-rot, 0deg)) scale(1); }
-  50% { transform: translateY(-5px) rotate(calc(var(--tile-rot, 0deg) + .6deg)) scale(1.01); }
-  100% { transform: translateY(4px) rotate(calc(var(--tile-rot, 0deg) - .6deg)) scale(.995); }
+  50% { transform: translateY(-8px) rotate(calc(var(--tile-rot, 0deg) + .8deg)) scale(1.018); }
+  100% { transform: translateY(6px) rotate(calc(var(--tile-rot, 0deg) - .8deg)) scale(1.004); }
 }
 
 @media (max-width: 720px) {
   .bmc-mosaic {
-    inset: -8vmax;
+    inset: -10vmax;
+    background-position: center top, center center, center center;
   }
+
   .bmc-mosaic-tile {
-    opacity: .60;
-    border-radius: 12px;
+    opacity: .68;
+    border-radius: 14px;
   }
+
   .bmc-mosaic-tile.is-accent {
-    opacity: .72;
+    opacity: .82;
   }
+
   .bmc-shell::before {
     background:
-      linear-gradient(180deg, rgba(4, 6, 18, .16), rgba(6, 6, 18, .42)),
+      linear-gradient(180deg, rgba(4, 6, 18, .07), rgba(6, 6, 18, .28)),
       radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .10), transparent 28rem) !important;
   }
+
   .bmc-shell::after {
     background:
-      linear-gradient(180deg, rgba(5,6,19,.08), rgba(5,6,19,.22) 28%, rgba(5,6,19,.34) 100%) !important;
+      linear-gradient(180deg, rgba(5,6,19,.04), rgba(5,6,19,.14) 28%, rgba(5,6,19,.24) 100%) !important;
   }
 }
 
