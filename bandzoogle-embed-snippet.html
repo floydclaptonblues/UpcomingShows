@@ -1,26 +1,55 @@
-<!-- Balcony Music Club Upcoming Shows: Bandzoogle HTML Code feature snippet
-     Replace YOUR-GITHUB-USERNAME after the repo is published. -->
+<!-- Balcony Music Club Upcoming Shows: full-bleed Bandzoogle HTML Code feature snippet
+     This expands only the iframe/background area to viewport width.
+     The calendar inside the GitHub page remains constrained by its own .bmc-frame styles. -->
 
-<div id="bmc-upcoming-shows-embed"></div>
+<div id="bmc-upcoming-shows-bleed" style="
+  position:relative;
+  left:50%;
+  width:100vw;
+  max-width:100vw;
+  margin-left:-50vw;
+  margin-right:-50vw;
+  padding:0;
+  overflow:hidden;
+  background:#050613;
+">
+  <div id="bmc-upcoming-shows-embed" style="
+    width:100vw;
+    max-width:100vw;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#050613;
+  "></div>
+</div>
 
 <script>
 (function () {
-  const githubPagesUrl = "https://YOUR-GITHUB-USERNAME.github.io/bmc-upcoming-shows/";
-  const allowedOrigin = "https://YOUR-GITHUB-USERNAME.github.io";
+  const githubPagesUrl = "https://floydclaptonblues.github.io/UpcomingShows/?v=fullbleed-puzzle";
+  const allowedOrigin = "https://floydclaptonblues.github.io";
 
   const holder = document.getElementById("bmc-upcoming-shows-embed");
+  if (!holder) return;
+
   const iframe = document.createElement("iframe");
 
   iframe.src = githubPagesUrl;
   iframe.title = "Balcony Music Club Upcoming Shows";
   iframe.loading = "lazy";
   iframe.scrolling = "no";
-  iframe.style.width = "100%";
-  iframe.style.maxWidth = "100%";
+
+  iframe.style.width = "100vw";
+  iframe.style.maxWidth = "100vw";
   iframe.style.border = "0";
   iframe.style.display = "block";
-  iframe.style.minHeight = "900px";
+  iframe.style.margin = "0";
+  iframe.style.padding = "0";
   iframe.style.overflow = "hidden";
+  iframe.style.background = "#050613";
+
+  /* Tight initial height; the GitHub page sends its real height after render. */
+  iframe.style.height = "1200px";
+  iframe.style.minHeight = "900px";
 
   holder.appendChild(iframe);
 
@@ -29,8 +58,9 @@
     if (!event.data || event.data.source !== "bmc-upcoming-shows") return;
 
     const nextHeight = Number(event.data.height);
-    if (Number.isFinite(nextHeight) && nextHeight > 500) {
-      iframe.style.height = (nextHeight + 8) + "px";
+
+    if (Number.isFinite(nextHeight) && nextHeight > 400) {
+      iframe.style.height = Math.ceil(nextHeight) + "px";
     }
   });
 })();
@@ -38,8 +68,9 @@
 
 <noscript>
   <iframe
-    src="https://YOUR-GITHUB-USERNAME.github.io/bmc-upcoming-shows/"
+    src="https://floydclaptonblues.github.io/UpcomingShows/"
     title="Balcony Music Club Upcoming Shows"
-    style="width:100%;min-height:5200px;border:0;display:block;"
-  ></iframe>
+    style="position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;min-height:1400px;border:0;display:block;background:#050613;"
+    scrolling="no">
+  </iframe>
 </noscript>
