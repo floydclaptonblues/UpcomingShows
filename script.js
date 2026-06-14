@@ -12,6 +12,21 @@ try {
 
 const ASHLEY_PAIGE_ARTIST = "Ashley Paige & The Soulcial Club";
 
+const MONTH_INDEX = {
+  JANUARY: 0,
+  FEBRUARY: 1,
+  MARCH: 2,
+  APRIL: 3,
+  MAY: 4,
+  JUNE: 5,
+  JULY: 6,
+  AUGUST: 7,
+  SEPTEMBER: 8,
+  OCTOBER: 9,
+  NOVEMBER: 10,
+  DECEMBER: 11
+};
+
 const ARTIST_PHOTO_ASSETS = {
   "ANDRE LOVETT BAND": [
     "assets/artists/andre-lovett-band.jpg",
@@ -72,6 +87,65 @@ function applyManagementCorrections(data) {
     }
   });
   return data;
+}
+
+function dateKey(year, monthIndex, day) {
+  return (year * 10000) + ((monthIndex + 1) * 100) + day;
+}
+
+function scheduleYear(data) {
+  const yearMatch = String(data.month || data.subtitle || "").match(/\b(20\d{2})\b/);
+  if (yearMatch) {
+    return Number(yearMatch[1]);
+  }
+
+  return Number(new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric"
+  }).format(new Date()));
+}
+
+function todayKeyForVenue() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric"
+  }).formatToParts(new Date());
+
+  const values = Object.fromEntries(parts.map((part) => [part.type, Number(part.value)]));
+  return dateKey(values.year, values.month - 1, values.day);
+}
+
+function showDayKey(day, data) {
+  const match = String(day.date || "").match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b/i);
+  if (!match) {
+    return null;
+  }
+
+  const monthIndex = MONTH_INDEX[match[1].toUpperCase()];
+  const dayNumber = Number(match[2]);
+
+  if (!Number.isFinite(monthIndex) || !Number.isFinite(dayNumber)) {
+    return null;
+  }
+
+  return dateKey(scheduleYear(data), monthIndex, dayNumber);
+}
+
+function filterExpiredShowDays(data) {
+  const todayKey = todayKeyForVenue();
+  const sourceDays = data.shows || [];
+  const upcomingDays = sourceDays.filter((day) => {
+    const key = showDayKey(day, data);
+    return key === null || key >= todayKey;
+  });
+
+  return {
+    ...data,
+    shows: upcomingDays,
+    hiddenPastShowDays: sourceDays.length - upcomingDays.length
+  };
 }
 
 function photoCandidates(show) {
@@ -147,9 +221,10 @@ function escapeAttr(value) {
 }
 
 function render(data) {
-  const days = data.shows || [];
+  const activeData = filterExpiredShowDays(data);
+  const days = activeData.shows || [];
   const eventCount = days.reduce((sum, day) => sum + (day.shows || []).length, 0);
-  countEl.textContent = `${days.length} show days • ${eventCount} performances`;
+  countEl.textContent = `${days.length} upcoming show days • ${eventCount} performances`;
 
   if (!days.length) {
     calendar.innerHTML = `<p class="bmc-empty">Upcoming shows will be posted here soon.</p>`;
