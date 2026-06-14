@@ -1,43 +1,57 @@
 /* Moving puzzle-collage background for Upcoming Shows.
-   This intentionally replaces the old Dancing Jester GIF background. */
+   This intentionally replaces the old Dancing Jester GIF background without touching the marquee schedule. */
 
 .bmc-mosaic {
   position: fixed;
   inset: 0;
-  z-index: -4;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 79, 216, .12), transparent 24rem),
-    radial-gradient(circle at 82% 20%, rgba(0, 246, 255, .12), transparent 24rem),
+    radial-gradient(circle at 18% 12%, rgba(255, 79, 216, .16), transparent 24rem),
+    radial-gradient(circle at 82% 20%, rgba(0, 246, 255, .16), transparent 24rem),
     linear-gradient(180deg, #09051a, #050613);
 }
 
+/* Static fallback, visible even before the JavaScript-built moving tiles finish loading. */
 .bmc-mosaic::before {
   content: "";
   position: absolute;
   inset: -8%;
   background:
+    linear-gradient(180deg, rgba(5, 6, 19, .10), rgba(5, 6, 19, .38)),
+    url("assets/background/bmc-collage.webp") center / contain no-repeat,
     radial-gradient(circle at 15% 15%, rgba(255,255,255,.10), transparent 18rem),
     radial-gradient(circle at 82% 20%, rgba(255,216,77,.10), transparent 18rem),
     radial-gradient(circle at 50% 100%, rgba(255,79,216,.10), transparent 22rem);
-  filter: blur(10px);
+  filter: blur(2px) saturate(1.12);
+  opacity: .58;
 }
 
+/* Keep the schedule/card system in front of the moving background. */
+.bmc-frame {
+  position: relative;
+  z-index: 4;
+}
+
+/* Replace the old fixed GIF pseudo-background with a transparent readability veil. */
 .bmc-shell::before {
   background:
-    linear-gradient(180deg, rgba(4, 6, 18, .18), rgba(6, 6, 18, .56)),
+    linear-gradient(180deg, rgba(4, 6, 18, .16), rgba(6, 6, 18, .52)),
+    radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 36rem) !important;
+  background-image:
+    linear-gradient(180deg, rgba(4, 6, 18, .16), rgba(6, 6, 18, .52)),
     radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 36rem) !important;
   opacity: 1 !important;
   transform: none !important;
   pointer-events: none;
-  z-index: -3 !important;
+  z-index: 1 !important;
 }
 
 .bmc-shell::after {
   background:
-    linear-gradient(180deg, rgba(5,6,19,.08), rgba(5,6,19,.22) 24%, rgba(5,6,19,.52) 100%) !important;
-  z-index: -1 !important;
+    linear-gradient(180deg, rgba(5,6,19,.06), rgba(5,6,19,.18) 24%, rgba(5,6,19,.46) 100%) !important;
+  z-index: 2 !important;
 }
 
 .bmc-mosaic-tile {
@@ -47,12 +61,12 @@
   border: 1px solid rgba(255,255,255,.18);
   background:
     radial-gradient(circle at 50% 30%, rgba(255,255,255,.08), transparent 60%),
-    rgba(0,0,0,.34);
+    rgba(0,0,0,.26);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.08) inset,
     0 12px 28px rgba(0,0,0,.34),
-    0 0 24px rgba(255,79,216,.12),
-    0 0 20px rgba(0,246,255,.12);
+    0 0 24px rgba(255,79,216,.16),
+    0 0 20px rgba(0,246,255,.16);
   transition:
     top 2.4s cubic-bezier(.22,.61,.36,1),
     left 2.4s cubic-bezier(.22,.61,.36,1),
@@ -61,7 +75,7 @@
     transform 2.4s cubic-bezier(.22,.61,.36,1),
     opacity .6s ease;
   will-change: top, left, width, height, transform;
-  opacity: .52;
+  opacity: .62;
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
 }
@@ -71,7 +85,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.08)),
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(0,0,0,.08)),
     repeating-linear-gradient(
       to bottom,
       rgba(255,255,255,.024) 0,
@@ -84,7 +98,7 @@
 }
 
 .bmc-mosaic-tile.is-accent {
-  opacity: .64;
+  opacity: .74;
 }
 
 /* No crop: each picture/video/GIF is contained inside an uneven puzzle piece. */
@@ -94,12 +108,12 @@
   object-fit: contain;
   object-position: center;
   display: block;
-  filter: saturate(1.16) contrast(1.05) brightness(.94);
+  filter: saturate(1.18) contrast(1.06) brightness(.98);
 }
 
 .bmc-mosaic-tile.is-gif .bmc-mosaic-media,
 .bmc-mosaic-tile.is-video .bmc-mosaic-media {
-  filter: saturate(1.22) contrast(1.04) brightness(.98);
+  filter: saturate(1.24) contrast(1.05) brightness(1.02);
 }
 
 .bmc-mosaic-tile.is-pixel,
@@ -113,30 +127,33 @@
 }
 
 @keyframes bmc-tile-float {
-  0% { filter: saturate(1.1) brightness(.92); }
-  50% { filter: saturate(1.25) brightness(1.02); }
-  100% { filter: saturate(1.15) brightness(.95); }
+  0% { filter: saturate(1.1) brightness(.94); }
+  50% { filter: saturate(1.25) brightness(1.05); }
+  100% { filter: saturate(1.15) brightness(.98); }
 }
 
 @media (max-width: 720px) {
   .bmc-mosaic-tile {
-    opacity: .38;
+    opacity: .46;
     border-radius: 12px;
   }
 
   .bmc-mosaic-tile.is-accent {
-    opacity: .48;
+    opacity: .56;
   }
 
   .bmc-shell::before {
     background:
-      linear-gradient(180deg, rgba(4, 6, 18, .32), rgba(6, 6, 18, .72)),
+      linear-gradient(180deg, rgba(4, 6, 18, .30), rgba(6, 6, 18, .68)),
+      radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 28rem) !important;
+    background-image:
+      linear-gradient(180deg, rgba(4, 6, 18, .30), rgba(6, 6, 18, .68)),
       radial-gradient(circle at 50% 0%, rgba(255, 216, 77, .08), transparent 28rem) !important;
   }
 
   .bmc-shell::after {
     background:
-      linear-gradient(180deg, rgba(5,6,19,.15), rgba(5,6,19,.45) 28%, rgba(5,6,19,.78) 100%) !important;
+      linear-gradient(180deg, rgba(5,6,19,.12), rgba(5,6,19,.38) 28%, rgba(5,6,19,.72) 100%) !important;
   }
 }
 
