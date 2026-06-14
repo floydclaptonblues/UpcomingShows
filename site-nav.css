@@ -21,24 +21,71 @@
     0 0 30px rgba(75, 18, 132, .30);
 }
 
-.bmc-site-nav::before {
-  content: "Balcony Music Club";
-  display: block;
+.bmc-site-nav__titlebar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
   margin: 0 0 6px;
-  padding: 4px 8px 5px;
-  color: #ffffff;
-  background:
-    linear-gradient(90deg, #2c0757, #5d18a0 46%, #159447 75%, #f2c230);
-  border-top: 2px solid rgba(255, 255, 255, .85);
-  border-left: 2px solid rgba(255, 255, 255, .85);
-  border-right: 2px solid rgba(0, 0, 0, .72);
-  border-bottom: 2px solid rgba(0, 0, 0, .72);
+  padding: 4px;
+  color: #050505;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
   font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva, sans-serif;
-  font-size: 13px;
+}
+
+.bmc-site-nav__meta {
+  min-width: 0;
+  padding: 4px 8px 5px;
+  background: #ece9d8;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  color: #17002f;
+  font-size: clamp(10px, 1.5vw, 12px);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: .2px;
+  letter-spacing: .1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.bmc-site-nav__meta--left {
+  justify-self: stretch;
+  text-align: left;
+}
+
+.bmc-site-nav__meta--right {
+  justify-self: stretch;
+  text-align: right;
+}
+
+.bmc-site-nav__brand {
+  justify-self: center;
+  min-width: min(360px, 42vw);
+  padding: 5px 16px 6px;
+  color: #ffffff;
+  text-align: center;
+  background:
+    linear-gradient(90deg, #071879, #0046b8 46%, #001f80);
+  border-top: 2px solid rgba(255, 255, 255, .88);
+  border-left: 2px solid rgba(255, 255, 255, .88);
+  border-right: 2px solid rgba(0, 0, 0, .72);
+  border-bottom: 2px solid rgba(0, 0, 0, .72);
+  font-size: clamp(13px, 2vw, 18px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .3px;
   text-shadow: 1px 1px 0 #000;
+  box-shadow:
+    1px 1px 0 rgba(255,255,255,.35) inset,
+    -1px -1px 0 rgba(0,0,0,.35) inset;
 }
 
 .bmc-site-nav__inner {
@@ -140,9 +187,23 @@
     padding: 5px;
   }
 
-  .bmc-site-nav::before {
-    font-size: 12px;
+  .bmc-site-nav__titlebar {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .bmc-site-nav__brand {
+    order: -1;
+    min-width: 0;
+    width: 100%;
+    padding: 5px 8px 6px;
+    font-size: 14px;
+  }
+
+  .bmc-site-nav__meta {
     padding: 4px 7px;
+    font-size: 10px;
+    text-align: center;
   }
 
   .bmc-site-nav__inner {
