@@ -14,7 +14,8 @@
     #050613;
 }
 
-/* Static fallback/base: use the vertical Jazz Fest cart photo, not the wide BMC banner. */
+/* Static fallback/base: use the vertical Jazz Fest cart photo when present.
+   If it has not been uploaded yet, fall back to an existing vertical BMC photo. */
 .bmc-mosaic::before {
   content: "";
   position: absolute;
@@ -22,6 +23,7 @@
   background:
     linear-gradient(180deg, rgba(5, 6, 19, .00), rgba(5, 6, 19, .12)),
     url("assets/background/bmc-jazzfest-cart.jpg") center center / cover no-repeat,
+    url("assets/background/bmc-patio-sign.jpg") center center / cover no-repeat,
     radial-gradient(circle at 15% 15%, rgba(255,255,255,.14), transparent 18rem),
     radial-gradient(circle at 82% 20%, rgba(255,216,77,.15), transparent 18rem),
     radial-gradient(circle at 50% 100%, rgba(255,79,216,.15), transparent 22rem);
