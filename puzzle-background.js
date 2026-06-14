@@ -7,8 +7,14 @@ const BMC_PUZZLE_BACKGROUND_MEDIA = [
   { type: "image", src: "assets/background/outdoor-band.webp" },
   { type: "image", src: "assets/background/woody-blur.jpg" },
   { type: "image", src: "assets/background/bmc-empty-stage.jpg", accent: true },
-  { type: "video", src: "assets/background/background-loop.mp4", poster: "assets/background/bmc-empty-stage.jpg", accent: true },
+  { type: "image", src: "assets/background/bmc-women-singers-stage.jpg", accent: true },
   { type: "image", src: "assets/background/sierra-green-cover.jpg" },
+  { type: "image", src: "assets/background/bmc-lamp-bar.jpg", accent: true },
+  { type: "image", src: "assets/background/bmc-woman-singer-show-love.jpg" },
+  { type: "image", src: "assets/background/bmc-balcony-crowd-night.jpg", accent: true },
+  { type: "image", src: "assets/background/bmc-stage-band-show-love.jpg", accent: true },
+  { type: "image", src: "assets/background/bmc-main-room-wide.jpg" },
+  { type: "image", src: "assets/background/bmc-patio-sign.jpg" },
   { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true },
   { type: "gif", src: "assets/background/pixel-jazz-bar.gif", pixel: true, accent: true },
   { type: "image", src: "assets/background/portrait-woman.webp" },
@@ -33,7 +39,13 @@ const BMC_PUZZLE_DESKTOP_SLOTS = [
   { x: 49,  y: 48, w: 14, h: 18, r: 4 },
   { x: 64,  y: 47, w: 14, h: 18, r: -4 },
   { x: 79,  y: 44, w: 15, h: 16, r: 3 },
-  { x: 19,  y: 66, w: 26, h: 24, r: 0 }
+  { x: 19,  y: 66, w: 26, h: 24, r: 0 },
+  { x: 46,  y: 68, w: 18, h: 18, r: -3 },
+  { x: 67,  y: 67, w: 15, h: 20, r: 2 },
+  { x: 84,  y: 64, w: 15, h: 22, r: -2 },
+  { x: -4,  y: 71, w: 20, h: 17, r: 4 },
+  { x: 4,   y: 6,  w: 11, h: 28, r: 1 },
+  { x: 88,  y: 26, w: 12, h: 30, r: -1 }
 ];
 
 const BMC_PUZZLE_MOBILE_SLOTS = [
@@ -52,7 +64,13 @@ const BMC_PUZZLE_MOBILE_SLOTS = [
   { x: 72, y: 56, w: 26, h: 15, r: -3 },
   { x: 3,  y: 70, w: 26, h: 14, r: 2 },
   { x: 30, y: 71, w: 28, h: 14, r: -2 },
-  { x: 60, y: 72, w: 36, h: 16, r: 1 }
+  { x: 60, y: 72, w: 36, h: 16, r: 1 },
+  { x: -5, y: 84, w: 30, h: 13, r: -2 },
+  { x: 25, y: 86, w: 20, h: 12, r: 3 },
+  { x: 46, y: 86, w: 25, h: 13, r: -3 },
+  { x: 72, y: 84, w: 28, h: 14, r: 2 },
+  { x: -4, y: 5,  w: 20, h: 34, r: 1 },
+  { x: 79, y: 25, w: 20, h: 34, r: -1 }
 ];
 
 (function mountBmcPuzzleBackground() {
@@ -131,31 +149,13 @@ const BMC_PUZZLE_MOBILE_SLOTS = [
       tile.style.setProperty("--float-duration", `${12 + (index % 5) * 2}s`);
       tile.style.setProperty("--float-delay", `${(index % 4) * -1.4}s`);
 
-      let media;
-      if (item.type === "video") {
-        media = document.createElement("video");
-        media.src = item.src;
-        media.poster = item.poster || "";
-        media.className = "bmc-mosaic-media";
-        media.muted = true;
-        media.loop = true;
-        media.autoplay = true;
-        media.playsInline = true;
-        media.preload = "metadata";
-        media.addEventListener("error", () => tile.remove());
-
-        if (!prefersReduced) {
-          media.play().catch(() => {});
-        }
-      } else {
-        media = document.createElement("img");
-        media.src = item.src;
-        media.alt = "";
-        media.loading = "eager";
-        media.className = `bmc-mosaic-media${item.pixel ? " pixel" : ""}`;
-        media.decoding = "async";
-        media.addEventListener("error", () => tile.remove());
-      }
+      const media = document.createElement("img");
+      media.src = item.src;
+      media.alt = "";
+      media.loading = "eager";
+      media.className = `bmc-mosaic-media${item.pixel ? " pixel" : ""}`;
+      media.decoding = "async";
+      media.addEventListener("error", () => tile.remove());
 
       tile.appendChild(media);
       mosaicEl.appendChild(tile);
@@ -176,16 +176,5 @@ const BMC_PUZZLE_MOBILE_SLOTS = [
   }
 
   window.addEventListener("resize", handleResize);
-
-  document.addEventListener("visibilitychange", () => {
-    document.querySelectorAll(".bmc-mosaic video").forEach((video) => {
-      if (document.hidden) {
-        video.pause();
-      } else if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        video.play().catch(() => {});
-      }
-    });
-  });
-
   buildMosaic();
 })();
