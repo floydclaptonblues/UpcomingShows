@@ -7,11 +7,23 @@
   <meta name="description" content="Upcoming shows at Balcony Music Club in New Orleans.">
   <meta name="theme-color" content="#050613">
   <link rel="stylesheet" href="./styles.css?v=20260614-assets">
+  <link rel="stylesheet" href="./site-nav.css?v=20260614-variety-nav">
   <link rel="stylesheet" href="./puzzle-background.css?v=20260614-jazzfest-cart">
 </head>
 <body>
   <main class="bmc-shell">
     <div class="bmc-mosaic" id="bmcMosaic" aria-hidden="true"></div>
+
+    <nav class="bmc-site-nav" aria-label="Balcony Music Club website navigation">
+      <div class="bmc-site-nav__inner">
+        <a href="https://www.balconymusicclub.com/" rel="noopener">Home</a>
+        <a href="https://floydclaptonblues.github.io/UpcomingShows/" aria-current="page">Shows</a>
+        <a href="https://www.balconymusicclub.com/private-events" rel="noopener">Private Events</a>
+        <a href="https://www.balconymusicclub.com/gallery" rel="noopener">Gallery</a>
+        <a href="https://www.balconymusicclub.com/contact" rel="noopener">Contact</a>
+        <a href="https://app.balconymusicclub.com/" rel="noopener">BMC App</a>
+      </div>
+    </nav>
 
     <div class="bmc-frame">
       <header class="bmc-hero">
@@ -31,6 +43,6 @@
 
   <script type="application/json" id="shows-data">{"shows":[]}</script>
   <script src="./script.js?v=20260614-assets" defer></script>
-  <script src="./puzzle-background.js?v=20260614-performers-only" defer></script>
+  <script src="./puzzle-background.js?v=20260614-variety-nav" defer></script>
 </body>
 </html>
