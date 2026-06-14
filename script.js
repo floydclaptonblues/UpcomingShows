@@ -1,7 +1,14 @@
 const dataEl = document.getElementById("shows-data");
-const fallbackData = JSON.parse(dataEl.textContent);
 const calendar = document.getElementById("bmc-calendar");
 const countEl = document.getElementById("bmc-count");
+
+let fallbackData = { shows: [] };
+
+try {
+  fallbackData = JSON.parse(dataEl?.textContent || "{\"shows\":[]}");
+} catch (error) {
+  fallbackData = { shows: [] };
+}
 
 const ASHLEY_PAIGE_ARTIST = "Ashley Paige & The Soulcial Club";
 
@@ -72,15 +79,16 @@ function photoCandidates(show) {
   const existingPhoto = String(show.photo || "").trim();
   const localAssets = ARTIST_PHOTO_ASSETS[artistKey(show.artist)] || [];
 
-  if (existingPhoto) {
-    candidates.push(existingPhoto);
-  }
-
+  // Prefer local repo assets when they exist. Existing remote URLs remain available as fallbacks.
   localAssets.forEach((path) => {
     if (path && !candidates.includes(path)) {
       candidates.push(path);
     }
   });
+
+  if (existingPhoto && !candidates.includes(existingPhoto)) {
+    candidates.push(existingPhoto);
+  }
 
   return candidates;
 }
@@ -96,7 +104,7 @@ function imageMarkup(show) {
   return `<span class="bmc-photo bmc-photo-placeholder" aria-hidden="true">♪</span>`;
 }
 
-function makePlaceholder(artist) {
+function makePlaceholder() {
   const el = document.createElement("span");
   el.className = "bmc-photo bmc-photo-placeholder";
   el.setAttribute("aria-hidden", "true");
@@ -122,7 +130,7 @@ window.handleBmcImageError = function handleBmcImageError(img) {
     return;
   }
 
-  img.replaceWith(makePlaceholder(img.getAttribute("alt") || ""));
+  img.replaceWith(makePlaceholder());
 };
 
 function escapeHtml(value) {
@@ -145,6 +153,7 @@ function render(data) {
 
   if (!days.length) {
     calendar.innerHTML = `<p class="bmc-empty">Upcoming shows will be posted here soon.</p>`;
+    queueHeightUpdate();
     return;
   }
 
@@ -168,6 +177,19 @@ function render(data) {
   queueHeightUpdate();
 }
 
+async function loadScheduleData() {
+  try {
+    const response = await fetch("./shows.json?v=20260614-assets", { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`shows.json returned ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.warn("Using embedded fallback schedule data.", error);
+    return fallbackData;
+  }
+}
+
 function sendHeightToParent() {
   const height = Math.ceil(document.documentElement.scrollHeight);
   window.parent?.postMessage({ source: "bmc-upcoming-shows", height }, "*");
@@ -186,4 +208,16 @@ if ("ResizeObserver" in window) {
   new ResizeObserver(queueHeightUpdate).observe(document.documentElement);
 }
 
-render(applyManagementCorrections(fallbackData));
+async function boot() {
+  try {
+    const data = await loadScheduleData();
+    render(applyManagementCorrections(data));
+  } catch (error) {
+    console.error(error);
+    countEl.textContent = "Schedule temporarily unavailable";
+    calendar.innerHTML = `<p class="bmc-empty">Upcoming shows will be posted here soon.</p>`;
+    queueHeightUpdate();
+  }
+}
+
+boot();
