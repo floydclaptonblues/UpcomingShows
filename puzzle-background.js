@@ -1,194 +1,156 @@
 const BMC_PUZZLE_BACKGROUND_MEDIA = [
-  { type: "image", src: "assets/background/live-performance-1.jpg", accent: true },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
   { type: "image", src: "assets/background/bmc-women-singers-stage.jpg", accent: true },
-  { type: "image", src: "assets/background/bmc-lamp-bar.jpg", accent: true },
-  { type: "image", src: "assets/background/bmc-woman-singer-show-love.jpg" },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
-  { type: "image", src: "assets/background/bmc-balcony-crowd-night.jpg", accent: true },
+  { type: "image", src: "assets/background/live-performance-1.jpg", accent: true },
   { type: "image", src: "assets/background/bmc-stage-band-show-love.jpg", accent: true },
-  { type: "image", src: "assets/background/bmc-main-room-wide.jpg" },
-  { type: "image", src: "assets/background/bmc-patio-sign.jpg" },
-  { type: "image", src: "assets/background/ashley-paige-poster.webp", accent: true },
+  { type: "image", src: "assets/background/bmc-woman-singer-show-love.jpg", accent: true },
   { type: "image", src: "assets/background/bmc-stage-bw.jpg" },
   { type: "image", src: "assets/background/trombone-player.jpg" },
   { type: "image", src: "assets/background/window-band.jpg", accent: true },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
   { type: "image", src: "assets/background/outdoor-band.webp" },
   { type: "image", src: "assets/background/woody-blur.jpg" },
-  { type: "image", src: "assets/background/bmc-empty-stage.jpg", accent: true },
-  { type: "image", src: "assets/background/sierra-green-cover.jpg" },
-  { type: "gif", src: "assets/background/pixel-jazz-bar.gif", pixel: true, accent: true },
-  { type: "image", src: "assets/background/portrait-woman.webp" },
   { type: "image", src: "assets/background/guitarist-bw.webp" },
+  { type: "image", src: "assets/background/ashley-paige-poster.webp", accent: true },
+  { type: "image", src: "assets/background/bmc-collage.webp", accent: true },
   { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
-  { type: "gif", src: "assets/background/pixel-nola.gif", pixel: true },
-  { type: "image", src: "assets/background/bmc-collage.webp", accent: true }
+  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
+  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
+  { type: "gif", src: "assets/background/pixel-jazz-bar.gif", pixel: true },
+  { type: "gif", src: "assets/background/pixel-nola.gif", pixel: true }
 ];
 
 const BMC_PUZZLE_DESKTOP_SLOTS = [
-  { x: -3,  y: 3,  w: 20, h: 18, r: -5 },
-  { x: 18,  y: 1,  w: 18, h: 16, r: 2 },
-  { x: 39,  y: 3,  w: 22, h: 20, r: -2 },
-  { x: 64,  y: 3,  w: 17, h: 17, r: 4 },
-  { x: 80,  y: 2,  w: 20, h: 19, r: -3 },
-  { x: -4,  y: 25, w: 22, h: 19, r: 3 },
-  { x: 20,  y: 21, w: 18, h: 18, r: -4 },
-  { x: 42,  y: 26, w: 22, h: 18, r: 2 },
-  { x: 66,  y: 23, w: 24, h: 20, r: 0 },
-  { x: -3,  y: 48, w: 19, h: 21, r: -2 },
-  { x: 22,  y: 45, w: 20, h: 18, r: 3 },
-  { x: 47,  y: 49, w: 18, h: 19, r: -1 },
-  { x: 70,  y: 47, w: 20, h: 20, r: 4 },
-  { x: 7,   y: 70, w: 22, h: 18, r: -4 },
-  { x: 38,  y: 68, w: 24, h: 20, r: 0 },
-  { x: 71,  y: 69, w: 21, h: 20, r: 3 }
+  { x: -2, y: 3,  w: 14, h: 18, r: -5 },
+  { x: 10, y: 1,  w: 13, h: 16, r: 3 },
+  { x: 24, y: 2,  w: 15, h: 18, r: -2 },
+  { x: 39, y: 4,  w: 13, h: 16, r: 4 },
+  { x: 52, y: 2,  w: 15, h: 19, r: -3 },
+  { x: 67, y: 1,  w: 14, h: 17, r: 2 },
+  { x: 82, y: 3,  w: 13, h: 18, r: -4 },
+  { x: 2,  y: 30, w: 15, h: 17, r: 2 },
+  { x: 18, y: 27, w: 13, h: 16, r: -3 },
+  { x: 33, y: 29, w: 14, h: 18, r: 4 },
+  { x: 49, y: 27, w: 13, h: 16, r: -2 },
+  { x: 64, y: 29, w: 15, h: 18, r: 3 },
+  { x: 80, y: 26, w: 13, h: 17, r: -4 },
+  { x: 6,  y: 58, w: 14, h: 18, r: -3 },
+  { x: 23, y: 57, w: 15, h: 17, r: 2 },
+  { x: 42, y: 56, w: 14, h: 18, r: -1 },
+  { x: 61, y: 58, w: 15, h: 17, r: 4 },
+  { x: 79, y: 57, w: 13, h: 18, r: -3 }
 ];
 
 const BMC_PUZZLE_MOBILE_SLOTS = [
-  { x: -8, y: 2,  w: 34, h: 17, r: -4 },
-  { x: 26, y: 2,  w: 30, h: 16, r: 3 },
-  { x: 58, y: 3,  w: 34, h: 17, r: -3 },
-  { x: -7, y: 22, w: 30, h: 17, r: 2 },
-  { x: 26, y: 20, w: 32, h: 16, r: -2 },
-  { x: 61, y: 23, w: 30, h: 17, r: 3 },
-  { x: -4, y: 43, w: 32, h: 17, r: -4 },
-  { x: 31, y: 41, w: 30, h: 16, r: 2 },
-  { x: 64, y: 45, w: 31, h: 16, r: -1 },
-  { x: 0,  y: 64, w: 29, h: 15, r: 3 },
-  { x: 33, y: 63, w: 28, h: 14, r: -2 },
-  { x: 65, y: 65, w: 30, h: 15, r: 2 }
+  { x: -4, y: 3,  w: 24, h: 16, r: -4 },
+  { x: 19, y: 1,  w: 23, h: 15, r: 2 },
+  { x: 43, y: 2,  w: 24, h: 16, r: -2 },
+  { x: 67, y: 3,  w: 23, h: 16, r: 3 },
+  { x: 2,  y: 25, w: 23, h: 15, r: 2 },
+  { x: 27, y: 23, w: 23, h: 15, r: -2 },
+  { x: 52, y: 25, w: 23, h: 15, r: 3 },
+  { x: 76, y: 24, w: 20, h: 15, r: -3 },
+  { x: 5,  y: 47, w: 22, h: 15, r: -3 },
+  { x: 29, y: 46, w: 23, h: 15, r: 2 },
+  { x: 54, y: 47, w: 22, h: 15, r: -2 },
+  { x: 78, y: 46, w: 18, h: 15, r: 3 },
+  { x: 8,  y: 69, w: 23, h: 15, r: 2 },
+  { x: 33, y: 68, w: 24, h: 16, r: -2 },
+  { x: 59, y: 69, w: 23, h: 15, r: 3 }
 ];
 
 (function mountBmcPuzzleBackground() {
   const mosaicEl = document.getElementById("bmcMosaic");
   if (!mosaicEl) return;
 
-  let mosaicTiles = [];
-  let mosaicOrder = [];
-  let mosaicTimer = null;
-  let resizeTimer = null;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ACTIVE_COUNT = window.innerWidth <= 720 ? 7 : 10;
+  let tiles = [];
   let mediaCursor = 0;
-  let swapCursor = 0;
-
-  function prefersReducedMotion() {
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-
-  function visibleTileCount() {
-    return window.innerWidth <= 720 ? 7 : 10;
-  }
-
-  function tileScale() {
-    return window.innerWidth <= 720 ? 0.76 : 0.68;
-  }
+  let layoutTimer = null;
+  let resizeTimer = null;
 
   function currentSlots() {
     return window.innerWidth <= 720 ? BMC_PUZZLE_MOBILE_SLOTS : BMC_PUZZLE_DESKTOP_SLOTS;
   }
 
+  function createMediaEl(item, eager = false) {
+    const img = document.createElement("img");
+    img.src = item.src;
+    img.alt = "";
+    img.className = `bmc-mosaic-media${item.pixel ? " pixel" : ""}`;
+    img.decoding = "async";
+    img.loading = eager ? "eager" : "lazy";
+    return img;
+  }
+
+  function nextItem() {
+    const item = BMC_PUZZLE_BACKGROUND_MEDIA[mediaCursor % BMC_PUZZLE_BACKGROUND_MEDIA.length];
+    mediaCursor += 1;
+    return item;
+  }
+
   function applySlot(tile, slot, index) {
-    const scale = tileScale();
     tile.style.left = `${slot.x}%`;
     tile.style.top = `${slot.y}%`;
-    tile.style.width = `${slot.w * scale}%`;
-    tile.style.height = `${slot.h * scale}%`;
+    tile.style.width = `${slot.w}%`;
+    tile.style.height = `${slot.h}%`;
+    tile.style.setProperty('--tile-rot', `${slot.r}deg`);
     tile.style.transform = `rotate(${slot.r}deg)`;
     tile.style.zIndex = String((index % 4) + 1);
   }
 
-  function setTileMedia(tile, item, index, isInitial = false) {
-    tile.className = `bmc-mosaic-tile floating is-${item.type}${item.accent ? " is-accent" : ""}${item.pixel ? " is-pixel" : ""}`;
-    tile.style.setProperty("--float-duration", `${12 + (index % 5) * 1.7}s`);
-    tile.style.setProperty("--float-delay", `${(index % 4) * -1.2}s`);
-    tile.style.setProperty("--media-duration", `${18 + (index % 6) * 1.9}s`);
-    tile.innerHTML = "";
-
-    const media = document.createElement("img");
-    media.src = item.src;
-    media.alt = "";
-    media.loading = isInitial ? "eager" : "lazy";
-    media.className = `bmc-mosaic-media${item.pixel ? " pixel" : ""}`;
-    media.decoding = "async";
-    media.addEventListener("error", () => tile.remove());
-    tile.appendChild(media);
-  }
-
-  function relayoutMosaic(initial = false) {
-    const slots = currentSlots();
-
-    mosaicTiles.forEach((tile, index) => {
-      if (!tile.isConnected) return;
-      const slot = slots[mosaicOrder[index] % slots.length];
-
-      if (initial) {
-        tile.style.transition = "none";
-        applySlot(tile, slot, index);
-        requestAnimationFrame(() => {
-          tile.style.transition = "";
-        });
-      } else {
-        applySlot(tile, slot, index);
-      }
-    });
-  }
-
-  function rotateMediaSource() {
-    if (!mosaicTiles.length) return;
-    const tile = mosaicTiles[swapCursor % mosaicTiles.length];
-    const item = BMC_PUZZLE_BACKGROUND_MEDIA[mediaCursor % BMC_PUZZLE_BACKGROUND_MEDIA.length];
-    setTileMedia(tile, item, swapCursor, false);
-    mediaCursor += 1;
-    swapCursor += 1;
-  }
-
-  function shiftMosaic() {
-    if (!mosaicTiles.length) return;
-    const next = mosaicOrder.slice(1).concat(mosaicOrder[0]);
-
-    if (next.length > 5) {
-      const a = 2;
-      const b = next.length - 2;
-      [next[a], next[b]] = [next[b], next[a]];
-    }
-
-    mosaicOrder = next;
-    relayoutMosaic(false);
-    rotateMediaSource();
-  }
-
-  function buildMosaic() {
+  function buildTiles() {
     mosaicEl.innerHTML = "";
-    mosaicTiles = [];
+    tiles = [];
+    mediaCursor = 0;
+    const slots = currentSlots();
+    const count = Math.min(ACTIVE_COUNT, slots.length);
 
-    const count = Math.min(visibleTileCount(), BMC_PUZZLE_BACKGROUND_MEDIA.length);
-    mosaicOrder = Array.from({ length: count }, (_, index) => index);
-    mediaCursor = count;
-    swapCursor = 0;
-
-    for (let index = 0; index < count; index += 1) {
-      const item = BMC_PUZZLE_BACKGROUND_MEDIA[index];
+    for (let i = 0; i < count; i++) {
+      const item = nextItem();
       const tile = document.createElement("div");
-      setTileMedia(tile, item, index, true);
+      tile.className = `bmc-mosaic-tile floating is-${item.type}${item.accent ? " is-accent" : ""}${item.pixel ? " is-pixel" : ""}`;
+      tile.style.setProperty("--float-duration", `${11 + (i % 5) * 1.6}s`);
+      tile.style.setProperty("--float-delay", `${(i % 4) * -1.1}s`);
+      tile.dataset.type = item.type;
+      tile.appendChild(createMediaEl(item, true));
+      applySlot(tile, slots[i], i);
       mosaicEl.appendChild(tile);
-      mosaicTiles.push(tile);
-    }
-
-    relayoutMosaic(true);
-
-    clearInterval(mosaicTimer);
-    if (!prefersReducedMotion()) {
-      mosaicTimer = setInterval(shiftMosaic, 5600);
+      tiles.push(tile);
     }
   }
 
-  function handleResize() {
+  function rotateOneTile() {
+    if (!tiles.length) return;
+    const slots = currentSlots();
+    const first = tiles.shift();
+    const item = nextItem();
+    first.className = `bmc-mosaic-tile floating is-${item.type}${item.accent ? " is-accent" : ""}${item.pixel ? " is-pixel" : ""}`;
+    first.innerHTML = "";
+    first.appendChild(createMediaEl(item, false));
+    tiles.push(first);
+    tiles.forEach((tile, i) => applySlot(tile, slots[i % slots.length], i));
+  }
+
+  function relayoutAll() {
+    const slots = currentSlots();
+    tiles.forEach((tile, i) => applySlot(tile, slots[i % slots.length], i));
+  }
+
+  function start() {
+    buildTiles();
+    clearInterval(layoutTimer);
+    if (!prefersReduced) {
+      layoutTimer = setInterval(rotateOneTile, 3800);
+    }
+  }
+
+  window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      buildMosaic();
-    }, 180);
-  }
+      start();
+      relayoutAll();
+    }, 150);
+  });
 
-  window.addEventListener("resize", handleResize);
-  buildMosaic();
+  start();
 })();
