@@ -1,0 +1,231 @@
+.bmc-top-media {
+  position: relative;
+  z-index: 5;
+  width: min(1000px, calc(100% - 24px));
+  margin: 0 auto clamp(14px, 2.4vw, 26px);
+  display: grid;
+  gap: 8px;
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva, sans-serif;
+}
+
+.bmc-banner-window,
+.bmc-radio-mini {
+  border-radius: 0;
+  background: #c0c0c0;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+  box-shadow:
+    0 0 0 2px #808080 inset,
+    0 8px 0 rgba(0, 0, 0, .25),
+    0 0 22px rgba(242, 194, 48, .22);
+}
+
+.bmc-banner-window__title,
+.bmc-radio-mini__label {
+  margin: 4px;
+  padding: 4px 8px 5px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4b1284, #0046b8 48%, #159447);
+  border-top: 2px solid rgba(255,255,255,.85);
+  border-left: 2px solid rgba(255,255,255,.85);
+  border-right: 2px solid rgba(0,0,0,.72);
+  border-bottom: 2px solid rgba(0,0,0,.72);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.bmc-banner-window__screen {
+  position: relative;
+  margin: 0 4px 4px;
+  overflow: hidden;
+  height: clamp(92px, 18vw, 170px);
+  background:
+    linear-gradient(135deg, rgba(75,18,132,.28), rgba(21,148,71,.22), rgba(242,194,48,.18)),
+    #050613;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.bmc-banner-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04) brightness(.95);
+}
+
+.bmc-banner-window__screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.045) 0,
+      rgba(255,255,255,.045) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.12));
+  mix-blend-mode: screen;
+  opacity: .55;
+}
+
+.bmc-banner-window__caption {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 5px 8px;
+  color: #16002f;
+  background: #f2c230;
+  border-top: 2px solid #fff7bf;
+  border-left: 2px solid #fff7bf;
+  border-right: 2px solid #5d4300;
+  border-bottom: 2px solid #5d4300;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 0 rgba(0,0,0,.22);
+}
+
+.bmc-radio-mini {
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1fr) auto auto minmax(90px, 180px) auto auto;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  color: #050505;
+}
+
+.bmc-radio-mini__label {
+  margin: 0;
+  background: linear-gradient(90deg, #159447, #4b1284 55%, #f2c230);
+  white-space: nowrap;
+}
+
+.bmc-radio-mini__track {
+  min-width: 0;
+  padding: 5px 8px;
+  background: #ece9d8;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bmc-radio-mini__sub {
+  margin-left: 8px;
+  color: #4b1284;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.bmc-radio-mini button {
+  appearance: none;
+  cursor: pointer;
+  min-height: 28px;
+  padding: 5px 10px;
+  color: #17002f;
+  background: linear-gradient(180deg, #fff8be, #f2c230 48%, #c99a12);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #5d4300;
+  border-bottom: 2px solid #5d4300;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bmc-radio-mini button:active {
+  border-top-color: #5d4300;
+  border-left-color: #5d4300;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  transform: translateY(1px);
+}
+
+.bmc-radio-mini__meter {
+  height: 12px;
+  background: #050505;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  overflow: hidden;
+}
+
+.bmc-radio-mini__meter span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #159447, #f2c230, #4b1284);
+}
+
+.bmc-radio-mini__time {
+  min-width: 70px;
+  padding: 4px 6px;
+  text-align: right;
+  background: #ece9d8;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bmc-radio-mini__vol {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  background: #ece9d8;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bmc-radio-mini__vol input {
+  width: 74px;
+  accent-color: #159447;
+}
+
+@media (max-width: 820px) {
+  .bmc-radio-mini {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .bmc-radio-mini__label,
+  .bmc-radio-mini__track,
+  .bmc-radio-mini__meter,
+  .bmc-radio-mini__time,
+  .bmc-radio-mini__vol {
+    grid-column: 1 / -1;
+  }
+
+  .bmc-radio-mini__time {
+    text-align: left;
+  }
+}
