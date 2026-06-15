@@ -29,9 +29,17 @@
 
   if (!audio || !play || !next || !title || !progress || !time || !volume) return;
 
+  audio.autoplay = true;
+  audio.preload = "auto";
+  audio.muted = false;
+  audio.setAttribute("autoplay", "");
+  audio.setAttribute("preload", "auto");
+
   let current = 0;
   let introArmed = true;
   let introActive = false;
+  let autoplayAttempted = false;
+  let autoplayUnlocked = false;
 
   function fmt(seconds) {
     if (!Number.isFinite(seconds)) return "0:00";
@@ -61,18 +69,29 @@
     title.textContent = introActive ? `${track.title} → ${playlist[0].title}` : track.title;
   }
 
-  function tryPlay() {
+  function setVolumeFromControl() {
     audio.volume = Number.parseFloat(volume.value || "0.18");
+  }
+
+  function tryPlay({ fromAutoplay = false } = {}) {
+    audio.muted = false;
+    setVolumeFromControl();
     const promise = audio.play();
+
     if (promise && typeof promise.then === "function") {
       promise.then(() => {
+        autoplayUnlocked = true;
         root.classList.remove("is-autoplay-blocked");
         syncButton();
       }).catch(() => {
-        root.classList.add("is-autoplay-blocked");
+        if (fromAutoplay) {
+          root.classList.add("is-autoplay-blocked");
+          play.textContent = "▶ Start Radio";
+        }
         syncButton();
       });
     } else {
+      autoplayUnlocked = true;
       syncButton();
     }
   }
@@ -81,7 +100,7 @@
     audio.pause();
     audio.src = track.src;
     audio.load();
-    audio.volume = Number.parseFloat(volume.value || "0.18");
+    setVolumeFromControl();
     updateTitle();
     syncButton();
     syncTime();
@@ -98,12 +117,28 @@
     }
   }
 
-  function startIntroThenGhost() {
+  function startIntroThenGhost({ fromAutoplay = false } = {}) {
     current = 0;
     introActive = true;
     introArmed = false;
     loadSource(STARTUP_CHIME);
-    tryPlay();
+    tryPlay({ fromAutoplay });
+  }
+
+  function attemptAutoplay() {
+    if (!AUTOPLAY_ON_LOAD || autoplayAttempted || autoplayUnlocked) return;
+    autoplayAttempted = true;
+    startIntroThenGhost({ fromAutoplay: true });
+  }
+
+  function unlockOnFirstInteraction() {
+    if (autoplayUnlocked || !audio.paused) return;
+    root.classList.remove("is-autoplay-blocked");
+    if (introArmed) {
+      startIntroThenGhost();
+    } else {
+      tryPlay();
+    }
   }
 
   play.addEventListener("click", () => {
@@ -125,7 +160,7 @@
   });
 
   volume.addEventListener("input", () => {
-    audio.volume = Number.parseFloat(volume.value || "0.18");
+    setVolumeFromControl();
   });
 
   audio.addEventListener("timeupdate", syncTime);
@@ -144,13 +179,23 @@
     if (document.hidden) audio.pause();
   });
 
+  ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
+    window.addEventListener(eventName, unlockOnFirstInteraction, { once: true, passive: true });
+  });
+
   current = 0;
   introActive = false;
   introArmed = true;
-  loadSource(playlist[0]);
+  loadSource(STARTUP_CHIME);
   title.textContent = `${STARTUP_CHIME.title} → ${playlist[0].title}`;
 
   if (AUTOPLAY_ON_LOAD) {
-    window.setTimeout(() => startIntroThenGhost(), 650);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", attemptAutoplay, { once: true });
+    } else {
+      attemptAutoplay();
+    }
+    window.addEventListener("pageshow", () => window.setTimeout(attemptAutoplay, 250), { once: true });
+    window.setTimeout(attemptAutoplay, 900);
   }
 })();
