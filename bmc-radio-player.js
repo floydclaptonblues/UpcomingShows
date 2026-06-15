@@ -2,6 +2,8 @@
   const root = document.getElementById("bmcRadioMini");
   if (!root) return;
 
+  const AUTOPLAY_ON_LOAD = true;
+
   const playlist = [
     {
       title: "Parade On Esplanade",
@@ -44,6 +46,19 @@
     time.textContent = `${fmt(cur)} / ${fmt(dur)}`;
   }
 
+  function tryPlay() {
+    audio.volume = Number.parseFloat(volume.value || "0.18");
+    const promise = audio.play();
+    if (promise && typeof promise.then === "function") {
+      promise.then(syncButton).catch(() => {
+        root.classList.add("is-autoplay-blocked");
+        syncButton();
+      });
+    } else {
+      syncButton();
+    }
+  }
+
   function setTrack(index, shouldPlay) {
     current = ((index % playlist.length) + playlist.length) % playlist.length;
     const track = playlist[current];
@@ -56,29 +71,24 @@
     syncTime();
 
     if (shouldPlay) {
-      const promise = audio.play();
-      if (promise && typeof promise.then === "function") {
-        promise.then(syncButton).catch(syncButton);
-      } else {
-        syncButton();
-      }
+      tryPlay();
     }
   }
 
   play.addEventListener("click", () => {
+    root.classList.remove("is-autoplay-blocked");
     if (audio.paused) {
-      const promise = audio.play();
-      if (promise && typeof promise.then === "function") {
-        promise.then(syncButton).catch(syncButton);
-      } else {
-        syncButton();
-      }
+      tryPlay();
     } else {
       audio.pause();
     }
   });
 
-  next.addEventListener("click", () => setTrack(current + 1, true));
+  next.addEventListener("click", () => {
+    root.classList.remove("is-autoplay-blocked");
+    setTrack(current + 1, true);
+  });
+
   volume.addEventListener("input", () => {
     audio.volume = Number.parseFloat(volume.value || "0.18");
   });
@@ -94,4 +104,8 @@
   });
 
   setTrack(0, false);
+
+  if (AUTOPLAY_ON_LOAD) {
+    window.setTimeout(() => tryPlay(), 650);
+  }
 })();
