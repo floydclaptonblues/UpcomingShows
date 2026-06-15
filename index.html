@@ -6,8 +6,11 @@
   <title>Upcoming Shows | Balcony Music Club</title>
   <meta name="description" content="Upcoming shows at Balcony Music Club in New Orleans.">
   <meta name="theme-color" content="#050613">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v=20260614-assets">
-  <link rel="stylesheet" href="./site-nav.css?v=20260614-nav-links">
+  <link rel="stylesheet" href="./site-nav.css?v=20260615-homepage-header">
   <link rel="stylesheet" href="./bmc-top-media.css?v=20260614-bottom-media">
   <link rel="stylesheet" href="./puzzle-background.css?v=20260614-full-collage-cart">
 </head>
@@ -15,21 +18,26 @@
   <main class="bmc-shell">
     <div class="bmc-mosaic" id="bmcMosaic" aria-hidden="true"></div>
 
-    <nav class="bmc-site-nav" aria-label="Balcony Music Club website navigation">
-      <div class="bmc-site-nav__titlebar" aria-label="Balcony Music Club information">
-        <div class="bmc-site-nav__meta bmc-site-nav__meta--left">504 Esplanade Avenue • New Orleans, LA</div>
-        <div class="bmc-site-nav__brand">Balcony Music Club</div>
-        <div class="bmc-site-nav__meta bmc-site-nav__meta--right">Live Music Wednesday - Sunday</div>
+    <header class="site-header" aria-label="Balcony Music Club site header">
+      <a class="brand" href="https://www.balconymusicclub.com/" aria-label="Balcony Music Club home">
+        <img src="https://floydclaptonblues.github.io/BMC-Homepage/bmc_homepage_build/assets/bmc-logo-pixel.png?v=logo-revert-jazzycat-room-20260615" alt="Balcony Music Club">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="https://www.balconymusicclub.com/">Home</a>
+        <a href="https://shows.balconymusicclub.com/" class="active" aria-current="page">Shows</a>
+        <a href="https://www.balconymusicclub.com/host-your-event">Host Your Event</a>
+        <a href="https://www.balconymusicclub.com/store">Store</a>
+        <a href="https://www.balconymusicclub.com/ask-jazzycat">Ask JazzyCat</a>
+      </nav>
+
+      <div class="header-actions" aria-label="Quick actions">
+        <button type="button" aria-label="Search">⌕</button>
+        <button type="button" aria-label="Music">♫</button>
       </div>
-      <div class="bmc-site-nav__inner">
-        <a href="https://www.balconymusicclub.com/" rel="noopener">Home</a>
-        <a href="https://floydclaptonblues.github.io/UpcomingShows/" aria-current="page">Shows</a>
-        <a href="https://balconymusicclub.com/host-your-event" rel="noopener">Host Your Event</a>
-        <a href="https://balconymusicclub.com/store" rel="noopener">Store</a>
-        <a href="https://balconymusicclub.com/ask-jazzycat" rel="noopener">Ask JazzyCat</a>
-        <a href="https://app.balconymusicclub.com/" rel="noopener">BMC App</a>
-      </div>
-    </nav>
+    </header>
 
     <div class="bmc-frame">
       <header class="bmc-hero">
@@ -74,6 +82,7 @@
   </main>
 
   <script type="application/json" id="shows-data">{"shows":[]}</script>
+  <script src="./site-nav.js?v=20260615-homepage-header" defer></script>
   <script src="./script.js?v=20260614-auto-clear" defer></script>
   <script src="./bmc-radio-player.js?v=20260614-autoplay-strong" defer></script>
   <script src="./puzzle-background.js?v=20260614-full-collage-cart" defer></script>
