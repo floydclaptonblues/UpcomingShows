@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="./site-nav.css?v=20260615-bright-socials">
   <link rel="stylesheet" href="./bmc-top-media.css?v=20260615-music-waypoint">
   <link rel="stylesheet" href="./puzzle-background.css?v=20260614-full-collage-cart">
+  <style>
+    .bmc-banner-window {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
   <main class="bmc-shell">
@@ -50,8 +55,8 @@
 
       <section class="bmc-calendar" id="bmc-calendar" aria-label="Upcoming shows"></section>
 
-      <section class="bmc-top-media bmc-bottom-media" aria-label="Balcony Music Club video and radio">
-        <div class="bmc-banner-window" aria-label="Balcony Music Club banner video">
+      <section class="bmc-top-media bmc-bottom-media" aria-label="Balcony Music Club radio">
+        <div class="bmc-banner-window" aria-hidden="true">
           <div class="bmc-banner-window__title">BMC Live Video Signal</div>
           <div class="bmc-banner-window__screen">
             <video class="bmc-banner-video" autoplay muted loop playsinline preload="metadata" poster="./assets/background/bmc-collage.webp">
