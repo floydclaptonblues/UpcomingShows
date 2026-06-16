@@ -27,6 +27,7 @@
   const progress = document.getElementById("bmcRadioProgress");
   const time = document.getElementById("bmcRadioTime");
   const volume = document.getElementById("bmcRadioVolume");
+  const waypoint = document.querySelector(".bmc-music-waypoint");
 
   if (!audio || !play || !next || !title || !progress || !time || !volume) return;
 
@@ -41,9 +42,7 @@
   let current = 0;
   let introArmed = true;
   let introActive = false;
-  let autoplayAttemptCount = 0;
   let autoplayUnlocked = false;
-  let unlockListenersArmed = false;
 
   function fmt(seconds) {
     if (!Number.isFinite(seconds)) return "0:00";
@@ -100,7 +99,7 @@
     if (promise && typeof promise.then === "function") {
       promise.then(markAutoplayUnlocked).catch(() => {
         if (fromAutoplay) markAutoplayBlocked();
-        else syncButton();
+        syncButton();
       });
     } else {
       markAutoplayUnlocked();
@@ -136,9 +135,21 @@
     tryPlay({ fromAutoplay });
   }
 
+  function startRadioFromGesture() {
+    root.classList.remove("is-autoplay-blocked");
+
+    if (introArmed || !audio.currentSrc) {
+      startIntroThenGhost();
+      return;
+    }
+
+    if (audio.paused) {
+      tryPlay();
+    }
+  }
+
   function attemptAutoplay() {
     if (!AUTOPLAY_ON_LOAD || autoplayUnlocked || !audio.paused) return;
-    autoplayAttemptCount += 1;
 
     if (introArmed || !audio.currentSrc) {
       startIntroThenGhost({ fromAutoplay: true });
@@ -148,40 +159,27 @@
     tryPlay({ fromAutoplay: true });
   }
 
-  function unlockOnFirstInteraction() {
-    if (autoplayUnlocked || !audio.paused) return;
-    root.classList.remove("is-autoplay-blocked");
-
-    if (introArmed || !audio.currentSrc) {
-      startIntroThenGhost();
-    } else {
-      tryPlay();
-    }
-  }
-
-  function armUnlockListeners() {
-    if (unlockListenersArmed) return;
-    unlockListenersArmed = true;
-
-    ["pointerdown", "click", "keydown", "touchstart", "wheel", "scroll"].forEach((eventName) => {
-      window.addEventListener(eventName, unlockOnFirstInteraction, { once: true, passive: true });
-    });
-  }
-
-  play.addEventListener("click", () => {
-    root.classList.remove("is-autoplay-blocked");
+  play.addEventListener("click", (event) => {
+    event.preventDefault();
     if (audio.paused) {
-      if (introArmed || !audio.currentSrc) {
-        startIntroThenGhost();
-      } else {
-        tryPlay();
-      }
+      startRadioFromGesture();
     } else {
       audio.pause();
+      syncButton();
     }
   });
 
-  next.addEventListener("click", () => {
+  if (waypoint) {
+    waypoint.setAttribute("href", "#bmcRadioMini");
+    waypoint.addEventListener("click", (event) => {
+      event.preventDefault();
+      root.scrollIntoView({ behavior: "smooth", block: "center" });
+      startRadioFromGesture();
+    });
+  }
+
+  next.addEventListener("click", (event) => {
+    event.preventDefault();
     root.classList.remove("is-autoplay-blocked");
     setTrack(introActive ? 0 : current + 1, true);
   });
@@ -211,7 +209,6 @@
   introArmed = true;
   loadSource(STARTUP_CHIME);
   title.textContent = `${STARTUP_CHIME.title} → ${playlist[0].title}`;
-  armUnlockListeners();
 
   if (AUTOPLAY_ON_LOAD) {
     const scheduleAutoplayRetries = () => {
