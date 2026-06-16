@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BMC Radio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <style>
+    html,body{margin:0;background:transparent;overflow:hidden;color:#fff;font-family:'DotGothic16','MS Gothic','Chicago',sans-serif}*{box-sizing:border-box}
+    #bmc-radio-wrap{width:100%;max-width:1100px;margin:12px auto;font-family:'DotGothic16','MS Gothic','Chicago',sans-serif}
+    #bmc-radio-bar{position:relative;overflow:hidden;min-height:68px;border:2px solid #8ffcff;border-radius:12px;background:linear-gradient(rgba(10,10,35,.48),rgba(28,0,52,.58)),url('https://img-cdn.publive.online/filters:format(webp)/indigomusic/media/post_attachments/wp-content/uploads/2024/06/Vaporwave-aesthetic-1.jpg') center center/cover no-repeat;box-shadow:0 0 0 1px rgba(255,255,255,.16) inset,0 0 16px rgba(0,255,255,.20),0 0 30px rgba(255,0,180,.14)}
+    #bmc-radio-bar:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.06),rgba(255,255,255,0)),repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 3px);opacity:.45;pointer-events:none;mix-blend-mode:screen}
+    .bmc-row{position:relative;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 12px}.bmc-title-wrap{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 240px}.bmc-pill{flex:0 0 auto;padding:4px 8px;border-radius:999px;border:1px solid rgba(143,252,255,.55);background:rgba(0,0,0,.30);color:#8ffcff;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;box-shadow:0 0 8px rgba(143,252,255,.18);white-space:nowrap}.bmc-track{min-width:0}.bmc-now{font-size:14px;line-height:1;color:#fff;text-shadow:0 0 8px rgba(255,0,200,.35);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bmc-sub{margin-top:3px;font-size:10px;line-height:1;color:#ffd8fa;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    #bmcThinPlayBtn{appearance:none;border:none;cursor:pointer;flex:0 0 auto;height:34px;padding:0 14px;border-radius:999px;background:linear-gradient(90deg,#ff4fd8,#7df9ff);color:#16001f;font-size:12px;font-family:inherit;box-shadow:0 0 12px rgba(255,0,184,.28)}.bmc-progress-wrap{flex:1 1 220px;min-width:160px}.bmc-progress-track{width:100%;height:7px;border-radius:999px;background:rgba(255,255,255,.16);overflow:hidden;box-shadow:inset 0 0 6px rgba(0,0,0,.35)}#bmcThinProgress{width:0%;height:100%;background:linear-gradient(90deg,#7df9ff,#ff4fd8);box-shadow:0 0 10px rgba(125,249,255,.55)}#bmcThinTime{flex:0 0 auto;min-width:76px;text-align:right;font-size:11px;color:#eefcff;text-shadow:0 0 5px rgba(125,249,255,.30)}.bmc-vol{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.24);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:11px;white-space:nowrap}.bmc-vol input{width:78px;accent-color:#7df9ff}
+    #bmc-socials{flex:0 0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}#bmc-socials a{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 12px;border-radius:999px;text-decoration:none;background:rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:11px;letter-spacing:.6px;text-transform:uppercase;box-shadow:0 0 10px rgba(255,0,184,.16);white-space:nowrap;transition:transform .15s ease,filter .15s ease}#bmc-socials a:hover{transform:translateY(-1px);filter:brightness(1.08)}#bmc-socials a.fb{border-color:rgba(143,252,255,.32);color:#8ffcff;box-shadow:0 0 10px rgba(0,255,255,.14)}#bmc-socials a.yt{background:rgba(255,0,0,.24);border-color:rgba(255,90,90,.46)}#bmc-socials a.app{background:linear-gradient(90deg,rgba(125,249,255,.22),rgba(255,79,216,.18));border-color:rgba(255,216,77,.48);color:#ffd84d;box-shadow:0 0 10px rgba(255,216,77,.15),0 0 14px rgba(125,249,255,.10)}
+    .bmc-ticker-wrap{position:relative;z-index:2;margin:-2px 12px 8px;overflow:hidden;white-space:nowrap;font-size:10px;color:#ffd7f8;letter-spacing:.5px;opacity:.92}#bmcThinTicker{display:inline-block;padding-left:100%;animation:bmcThinTickerMove 18s linear infinite}@keyframes bmcThinTickerMove{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+    @media(max-width:760px){html,body{overflow:auto}#bmc-radio-bar{min-height:auto}#bmcThinPlayBtn{width:100%}#bmcThinTime{min-width:auto;width:100%;text-align:left}#bmc-socials{width:100%}#bmc-socials a{flex:1 1 calc(50% - 4px)}}
+  </style>
+</head>
+<body>
+<div id="bmc-radio-wrap"><div id="bmc-radio-bar"><div class="bmc-row"><div class="bmc-title-wrap"><div class="bmc-pill">BMC Radio</div><div class="bmc-track"><div id="bmcNowPlaying" class="bmc-now">Parade On Esplanade</div><div class="bmc-sub">Balcony Music Club Signal</div></div></div><button id="bmcThinPlayBtn">▶ Play</button><div class="bmc-progress-wrap"><div class="bmc-progress-track"><div id="bmcThinProgress"></div></div></div><div id="bmcThinTime">0:00 / 0:00</div><label class="bmc-vol">Vol <input id="bmcThinVol" type="range" min="0" max="1" step="0.01" value="0.18"></label><div id="bmc-socials"><a href="https://www.instagram.com/thebalconymusicclub?igsh=dGRmdm54OWNxNHFx" target="_blank" rel="noopener noreferrer">Instagram</a><a class="fb" href="https://www.facebook.com/profile.php?id=61574360105013" target="_blank" rel="noopener noreferrer">Facebook</a><a class="yt" href="https://www.youtube.com/@OfficialBMCNewOrleans504" target="_blank" rel="noopener noreferrer">YouTube</a><a class="app" href="https://app.balconymusicclub.com/" target="_blank" rel="noopener noreferrer">BMC App</a></div></div><div class="bmc-ticker-wrap"><div id="bmcThinTicker">▲ AUTOPLAY ENABLED • PARADE ON ESPLANADE / GHOST PARADE ON CANAL • FOLLOW BMC ON INSTAGRAM + FACEBOOK + YOUTUBE • OPEN THE BMC APP • BMC RADIO ▲</div></div><audio id="bmcThinAudio" preload="auto" autoplay playsinline style="display:none"></audio></div></div>
+<script>
+(function(){
+  var channelName="bmc_sitewide_radio_channel";
+  var storageKey="__BMC_SITEWIDE_STOP__";
+  var instanceId="bmc_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+  var bc=null;
+  var playlist=[{title:"Parade On Esplanade",src:"https://img1.wsimg.com/blobby/go/fcde905d-e711-4bbd-8961-6b9df0cf58b2/downloads/a862837f-91fa-448b-bb7a-8e02d7e68ac7/ONE%20MO_%20_GIN.mp3?ver=1775241263886"},{title:"Ghost Parade on Canal",src:"https://img1.wsimg.com/blobby/go/fcde905d-e711-4b05-a37d-65b396267fb1/Ghost%20Parade%20on%20Canal.mp3?ver=1774633564261"}];
+  var audio=document.getElementById("bmcThinAudio"),btn=document.getElementById("bmcThinPlayBtn"),vol=document.getElementById("bmcThinVol"),bar=document.getElementById("bmcThinProgress"),time=document.getElementById("bmcThinTime"),title=document.getElementById("bmcNowPlaying");
+  if(!audio||!btn||!vol||!bar||!time||!title)return;
+  var idx=0;
+  function fmt(s){if(!isFinite(s))return"0:00";var m=Math.floor(s/60),sec=Math.floor(s%60);return m+":"+(sec<10?"0"+sec:sec)}
+  function update(){btn.textContent=audio.paused?"▶ Play":"❚❚ Pause";var d=audio.duration||0,c=audio.currentTime||0;bar.style.width=(d?(c/d)*100:0)+"%";time.textContent=fmt(c)+" / "+fmt(d)}
+  function signalOthers(){var payload=JSON.stringify({id:instanceId,t:Date.now()});try{localStorage.setItem(storageKey,payload)}catch(e){}try{if(!bc&&"BroadcastChannel"in window)bc=new BroadcastChannel(channelName);if(bc)bc.postMessage(payload)}catch(e){}}
+  function externalStop(raw){try{var data=typeof raw==="string"?JSON.parse(raw):raw;if(data&&data.id!==instanceId){audio.pause();update()}}catch(e){}}
+  function setTrack(i,play){idx=((i%playlist.length)+playlist.length)%playlist.length;audio.pause();audio.src=playlist[idx].src;title.textContent=playlist[idx].title;audio.load();audio.volume=parseFloat(vol.value||"0.18");if(play)audio.play().then(update).catch(update);update()}
+  btn.addEventListener("click",function(){if(audio.paused){signalOthers();audio.volume=parseFloat(vol.value||"0.18");audio.play().then(update).catch(update)}else audio.pause();update()});
+  vol.addEventListener("input",function(){audio.volume=parseFloat(vol.value||"0.18")});
+  audio.addEventListener("timeupdate",update);audio.addEventListener("loadedmetadata",update);audio.addEventListener("play",update);audio.addEventListener("pause",update);audio.addEventListener("ended",function(){setTrack(idx+1,true)});
+  window.addEventListener("storage",function(e){if(e.key===storageKey&&e.newValue)externalStop(e.newValue)});try{if("BroadcastChannel"in window){bc=new BroadcastChannel(channelName);bc.onmessage=function(e){externalStop(e.data)}}}catch(e){}
+  setTrack(0,false);signalOthers();audio.play().then(update).catch(update);update();
+})();
+</script>
+</body>
+</html>
