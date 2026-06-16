@@ -3,6 +3,7 @@
   if (!root) return;
 
   const AUTOPLAY_ON_LOAD = true;
+  const AUTOPLAY_RETRY_DELAYS = [0, 250, 900, 1800, 3200];
   const STARTUP_CHIME = {
     title: "Windows 95 Startup",
     src: "https://img1.wsimg.com/blobby/go/fcde905d-e711-4bbd-8961-6b9df0cf58b2/downloads/db8c01b6-b94b-40e4-9cea-b854edc28c27/Windows_95.mp3?ver=1781495024914"
@@ -32,14 +33,17 @@
   audio.autoplay = true;
   audio.preload = "auto";
   audio.muted = false;
+  audio.playsInline = true;
   audio.setAttribute("autoplay", "");
   audio.setAttribute("preload", "auto");
+  audio.setAttribute("playsinline", "");
 
   let current = 0;
   let introArmed = true;
   let introActive = false;
-  let autoplayAttempted = false;
+  let autoplayAttemptCount = 0;
   let autoplayUnlocked = false;
+  let unlockListenersArmed = false;
 
   function fmt(seconds) {
     if (!Number.isFinite(seconds)) return "0:00";
@@ -49,6 +53,10 @@
   }
 
   function syncButton() {
+    if (audio.paused && root.classList.contains("is-autoplay-blocked")) {
+      play.textContent = "▶ Start Radio";
+      return;
+    }
     play.textContent = audio.paused ? "▶ Play" : "❚❚ Pause";
   }
 
@@ -73,26 +81,29 @@
     audio.volume = Number.parseFloat(volume.value || "0.18");
   }
 
+  function markAutoplayBlocked() {
+    root.classList.add("is-autoplay-blocked");
+    syncButton();
+  }
+
+  function markAutoplayUnlocked() {
+    autoplayUnlocked = true;
+    root.classList.remove("is-autoplay-blocked");
+    syncButton();
+  }
+
   function tryPlay({ fromAutoplay = false } = {}) {
     audio.muted = false;
     setVolumeFromControl();
     const promise = audio.play();
 
     if (promise && typeof promise.then === "function") {
-      promise.then(() => {
-        autoplayUnlocked = true;
-        root.classList.remove("is-autoplay-blocked");
-        syncButton();
-      }).catch(() => {
-        if (fromAutoplay) {
-          root.classList.add("is-autoplay-blocked");
-          play.textContent = "▶ Start Radio";
-        }
-        syncButton();
+      promise.then(markAutoplayUnlocked).catch(() => {
+        if (fromAutoplay) markAutoplayBlocked();
+        else syncButton();
       });
     } else {
-      autoplayUnlocked = true;
-      syncButton();
+      markAutoplayUnlocked();
     }
   }
 
@@ -126,25 +137,41 @@
   }
 
   function attemptAutoplay() {
-    if (!AUTOPLAY_ON_LOAD || autoplayAttempted || autoplayUnlocked) return;
-    autoplayAttempted = true;
-    startIntroThenGhost({ fromAutoplay: true });
+    if (!AUTOPLAY_ON_LOAD || autoplayUnlocked || !audio.paused) return;
+    autoplayAttemptCount += 1;
+
+    if (introArmed || !audio.currentSrc) {
+      startIntroThenGhost({ fromAutoplay: true });
+      return;
+    }
+
+    tryPlay({ fromAutoplay: true });
   }
 
   function unlockOnFirstInteraction() {
     if (autoplayUnlocked || !audio.paused) return;
     root.classList.remove("is-autoplay-blocked");
-    if (introArmed) {
+
+    if (introArmed || !audio.currentSrc) {
       startIntroThenGhost();
     } else {
       tryPlay();
     }
   }
 
+  function armUnlockListeners() {
+    if (unlockListenersArmed) return;
+    unlockListenersArmed = true;
+
+    ["pointerdown", "click", "keydown", "touchstart", "wheel", "scroll"].forEach((eventName) => {
+      window.addEventListener(eventName, unlockOnFirstInteraction, { once: true, passive: true });
+    });
+  }
+
   play.addEventListener("click", () => {
     root.classList.remove("is-autoplay-blocked");
     if (audio.paused) {
-      if (introArmed) {
+      if (introArmed || !audio.currentSrc) {
         startIntroThenGhost();
       } else {
         tryPlay();
@@ -176,11 +203,7 @@
   });
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) audio.pause();
-  });
-
-  ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
-    window.addEventListener(eventName, unlockOnFirstInteraction, { once: true, passive: true });
+    if (document.hidden && !audio.paused) audio.pause();
   });
 
   current = 0;
@@ -188,14 +211,23 @@
   introArmed = true;
   loadSource(STARTUP_CHIME);
   title.textContent = `${STARTUP_CHIME.title} → ${playlist[0].title}`;
+  armUnlockListeners();
 
   if (AUTOPLAY_ON_LOAD) {
+    const scheduleAutoplayRetries = () => {
+      AUTOPLAY_RETRY_DELAYS.forEach((delay) => {
+        window.setTimeout(attemptAutoplay, delay);
+      });
+    };
+
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", attemptAutoplay, { once: true });
+      document.addEventListener("DOMContentLoaded", scheduleAutoplayRetries, { once: true });
     } else {
-      attemptAutoplay();
+      scheduleAutoplayRetries();
     }
-    window.addEventListener("pageshow", () => window.setTimeout(attemptAutoplay, 250), { once: true });
-    window.setTimeout(attemptAutoplay, 900);
+
+    window.addEventListener("load", attemptAutoplay, { once: true });
+    window.addEventListener("pageshow", () => window.setTimeout(attemptAutoplay, 250));
+    window.addEventListener("focus", attemptAutoplay);
   }
 })();
