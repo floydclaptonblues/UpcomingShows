@@ -1,6 +1,5 @@
 const dataEl = document.getElementById("shows-data");
 const calendar = document.getElementById("bmc-calendar");
-const countEl = document.getElementById("bmc-count");
 
 let fallbackData = { shows: [] };
 
@@ -223,8 +222,6 @@ function escapeAttr(value) {
 function render(data) {
   const activeData = filterExpiredShowDays(data);
   const days = activeData.shows || [];
-  const eventCount = days.reduce((sum, day) => sum + (day.shows || []).length, 0);
-  countEl.textContent = `${days.length} upcoming show days • ${eventCount} performances`;
 
   if (!days.length) {
     calendar.innerHTML = `<p class="bmc-empty">Upcoming shows will be posted here soon.</p>`;
@@ -289,7 +286,6 @@ async function boot() {
     render(applyManagementCorrections(data));
   } catch (error) {
     console.error(error);
-    countEl.textContent = "Schedule temporarily unavailable";
     calendar.innerHTML = `<p class="bmc-empty">Upcoming shows will be posted here soon.</p>`;
     queueHeightUpdate();
   }
