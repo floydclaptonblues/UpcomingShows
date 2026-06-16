@@ -27,6 +27,10 @@
     0 0 22px rgba(242, 194, 48, .22);
 }
 
+.bmc-banner-window {
+  display: none !important;
+}
+
 .bmc-banner-window__title,
 .bmc-radio-mini__label {
   margin: 4px;
