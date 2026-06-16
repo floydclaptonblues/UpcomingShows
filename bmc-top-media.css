@@ -104,6 +104,46 @@
   box-shadow: 1px 1px 0 rgba(0,0,0,.22);
 }
 
+.bmc-music-waypoint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(260px, calc(100% - 18px));
+  min-height: 38px;
+  margin: 2px auto 8px;
+  padding: 7px 18px;
+  color: #17002f;
+  background: linear-gradient(180deg, #fff8be, #f2c230 48%, #c99a12);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #5d4300;
+  border-bottom: 2px solid #5d4300;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 0 rgba(0,0,0,.24), 0 0 16px rgba(242, 194, 48, .30);
+}
+
+.bmc-music-waypoint:hover,
+.bmc-music-waypoint:focus-visible {
+  color: #090015;
+  background: linear-gradient(180deg, #ffffff, #ffe27a 45%, #f2c230);
+  outline: 2px solid rgba(75, 18, 132, .55);
+  outline-offset: 2px;
+}
+
+.bmc-music-waypoint:active {
+  border-top-color: #5d4300;
+  border-left-color: #5d4300;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  transform: translateY(1px);
+}
+
 .bmc-radio-mini {
   display: grid;
   grid-template-columns: auto minmax(180px, 1fr) auto auto minmax(90px, 180px) auto auto;
@@ -111,6 +151,7 @@
   gap: 6px;
   padding: 4px;
   color: #050505;
+  scroll-margin-top: 116px;
 }
 
 .bmc-radio-mini.is-autoplay-blocked {
