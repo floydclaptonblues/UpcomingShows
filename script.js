@@ -22,7 +22,7 @@ const MONTH_INDEX = {
   AUGUST: 7,
   SEPTEMBER: 8,
   OCTOBER: 9,
-  DECEMBER: 10,
+  NOVEMBER: 10,
   DECEMBER: 11
 };
 
