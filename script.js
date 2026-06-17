@@ -59,6 +59,9 @@ const ARTIST_PHOTO_ASSETS = {
     "assets/artists/woodys-rampage.jpg",
     "assets/artists/Woody%27s%20Rampage.jpg"
   ],
+  "T MARIE": [
+    "assets/artists/IMG_20260616_235511.png"
+  ],
   "ASHLEY PAIGE & THE SOULCIAL CLUB": [
     "assets/artists/ashley-paige-soulcial-club.jpg",
     "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
