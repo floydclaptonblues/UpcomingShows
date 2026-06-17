@@ -174,7 +174,8 @@ function imageMarkup(show) {
 
   if (candidates.length) {
     const fallbackPayload = JSON.stringify(candidates);
-    return `<img class="bmc-photo" loading="lazy" src="${escapeAttr(candidates[0])}" data-photo-fallbacks="${escapeAttr(fallbackPayload)}" data-photo-index="0" alt="${escapeAttr(show.alt || show.artist + " promo photo")}" onerror="window.handleBmcImageError(this)">`;
+    const altText = show.alt || `${show.artist} promo photo`;
+    return `<img class="bmc-photo" loading="lazy" src="${escapeAttr(candidates[0])}" data-photo-fallbacks="${escapeAttr(fallbackPayload)}" data-photo-index="0" alt="${escapeAttr(altText)}" onerror="window.handleBmcImageError(this)">`;
   }
 
   return `<span class="bmc-photo bmc-photo-placeholder" aria-hidden="true">♪</span>`;
