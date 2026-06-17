@@ -133,7 +133,8 @@ function showDayKey(day, data) {
   }
 
   return dateKey(scheduleYear(data), monthIndex, dayNumber);
-}\n
+}
+
 function filterExpiredShowDays(data) {
   const todayKey = todayKeyForVenue();
   const sourceDays = data.shows || [];
