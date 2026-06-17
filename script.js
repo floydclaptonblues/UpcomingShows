@@ -22,7 +22,7 @@ const MONTH_INDEX = {
   AUGUST: 7,
   SEPTEMBER: 8,
   OCTOBER: 9,
-  NOVEMBER: 10,
+  DECEMBER: 10,
   DECEMBER: 11
 };
 
@@ -255,7 +255,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=20260614-assets", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=20260616-t-marie-photo", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
