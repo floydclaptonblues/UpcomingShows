@@ -155,7 +155,6 @@ function photoCandidates(show) {
   const existingPhoto = String(show.photo || "").trim();
   const localAssets = ARTIST_PHOTO_ASSETS[artistKey(show.artist)] || [];
 
-  // Prefer local repo assets when they exist. Existing remote URLs remain available as fallbacks.
   localAssets.forEach((path) => {
     if (path && !candidates.includes(path)) {
       candidates.push(path);
