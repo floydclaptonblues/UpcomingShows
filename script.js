@@ -255,7 +255,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=20260616-t-marie-photo", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=20260616-t-marie-photo-final", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
