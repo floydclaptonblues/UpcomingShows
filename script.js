@@ -10,6 +10,8 @@ try {
 }
 
 const ASHLEY_PAIGE_ARTIST = "Ashley Paige & The Soulcial Club";
+const T_MARIE_BAYOU_JUJU_ARTIST = "T Marie & Bayou JuJu";
+const T_MARIE_BAYOU_JUJU_PHOTO = "assets/artists/IMG_20260616_235511.png";
 
 const MONTH_INDEX = {
   JANUARY: 0,
@@ -59,8 +61,8 @@ const ARTIST_PHOTO_ASSETS = {
     "assets/artists/woodys-rampage.jpg",
     "assets/artists/Woody%27s%20Rampage.jpg"
   ],
-  "T MARIE": [
-    "assets/artists/IMG_20260616_235511.png"
+  "T MARIE & BAYOU JUJU": [
+    T_MARIE_BAYOU_JUJU_PHOTO
   ],
   "ASHLEY PAIGE & THE SOULCIAL CLUB": [
     "assets/artists/ashley-paige-soulcial-club.jpg",
@@ -84,6 +86,16 @@ function applyManagementCorrections(data) {
           show.photo = "";
           show.alt = "";
           show.headliner = true;
+        }
+      });
+    }
+
+    if (day.date === "Saturday • June 20") {
+      (day.shows || []).forEach((show) => {
+        if (show.time === "6:00 PM – 8:30 PM" && artistKey(show.artist).includes("T MARIE")) {
+          show.artist = T_MARIE_BAYOU_JUJU_ARTIST;
+          show.photo = T_MARIE_BAYOU_JUJU_PHOTO;
+          show.alt = "T Marie & Bayou JuJu promo photo";
         }
       });
     }
@@ -254,7 +266,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=20260616-t-marie-photo-final", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=20260618-t-marie-bayou-juju", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
