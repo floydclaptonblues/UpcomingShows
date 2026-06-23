@@ -12,6 +12,8 @@ try {
 const ASHLEY_PAIGE_ARTIST = "Ashley Paige & The Soulcial Club";
 const T_MARIE_BAYOU_JUJU_ARTIST = "T Marie & Bayou JuJu";
 const T_MARIE_BAYOU_JUJU_PHOTO = "assets/artists/IMG_20260616_235511.png";
+const LOUISIANA_PARISH_LINE_ARTIST = "Louisiana Parish Line";
+const LOUISIANA_PARISH_LINE_PHOTO = "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG";
 
 const MONTH_INDEX = {
   JANUARY: 0,
@@ -64,6 +66,9 @@ const ARTIST_PHOTO_ASSETS = {
   "T MARIE & BAYOU JUJU": [
     T_MARIE_BAYOU_JUJU_PHOTO
   ],
+  "LOUISIANA PARISH LINE": [
+    LOUISIANA_PARISH_LINE_PHOTO
+  ],
   "ASHLEY PAIGE & THE SOULCIAL CLUB": [
     "assets/artists/ashley-paige-soulcial-club.jpg",
     "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
@@ -86,6 +91,17 @@ function applyManagementCorrections(data) {
           show.photo = "";
           show.alt = "";
           show.headliner = true;
+        }
+      });
+    }
+
+    if (day.date === "Wednesday • June 24") {
+      (day.shows || []).forEach((show) => {
+        if (show.time === "6:00 PM – 8:30 PM") {
+          show.artist = LOUISIANA_PARISH_LINE_ARTIST;
+          show.photo = LOUISIANA_PARISH_LINE_PHOTO;
+          show.alt = "Louisiana Parish Line promo poster";
+          show.headliner = false;
         }
       });
     }
@@ -266,7 +282,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=20260618-t-marie-bayou-juju", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=20260624-louisiana-parish-line", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
