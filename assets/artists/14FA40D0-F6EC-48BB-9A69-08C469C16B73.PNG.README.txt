@@ -1,0 +1,6 @@
+Louisiana Parish Line image drop slot
+
+Place the supplied poster image at:
+assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG
+
+The June 24, 2026 6:00 PM-8:30 PM listing now looks for that exact filename.
