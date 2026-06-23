@@ -1,10 +1,10 @@
 {
   "venue": "Balcony Music Club",
-  "month": "June 2026",
+  "month": "June-July 2026",
   "title": "Upcoming Shows",
-  "subtitle": "June 2026 • Balcony Music Club",
+  "subtitle": "June-July 2026 • Balcony Music Club",
   "last_updated": "2026-06-23",
-  "source_note": "Current upcoming block begins June 24, 2026. June 24 6:00 PM-8:30 PM listing updated to Louisiana Parish Line with a local image slot using the supplied filename.",
+  "source_note": "Current upcoming block begins June 24, 2026 and now includes the Ryan-provided BMC July 2026 calendar through July 31. Blank July 11 9:00 PM and July 30 6:00 PM slots are preserved as TBA placeholders.",
   "shows": [
     {
       "date": "Wednesday • June 24",
@@ -18,7 +18,7 @@
         },
         {
           "time": "9:00 PM – 11:30 PM",
-          "artist": "ASHLEY PAIGE & THE SOULCIAL CLUB",
+          "artist": "Ashley Paige & The Soulcial Club",
           "photo": "",
           "alt": "",
           "headliner": true
@@ -111,6 +111,404 @@
           "artist": "KIM IN THE WIND",
           "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
           "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • July 2",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "FUNKY SOLES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • July 3",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "ADO SOUL & THE TRIBE",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • July 4",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "TROPICAL WEATHER",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "YUNG DEX BRASS BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "THEE FONK JAM feat. TamarieT",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • July 5",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "SIERRA & GREEN NOTES",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green promo photo",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JOSH BENITEZ BAND",
+          "photo": "https://f4.bcbits.com/img/0019269648_10.jpg",
+          "alt": "Josh Benitez promo photo",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • July 9",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "DAPPER DANDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "JAM BRASS BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • July 10",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "ADO SOUL & THE TRIBE",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • July 11",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "WOODY'S RAMPAGE",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "TBA",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        }
+      ]
+    },
+    {
+      "date": "Sunday • July 12",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "DEEJ FLAVA & MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM IN THE WIND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • July 16",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "LEROY MARSHALL BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • July 17",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "PARISH LINE",
+          "photo": "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG",
+          "alt": "Parish Line promo poster",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & THE R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • July 18",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "JON RONIGER",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "ASHLEY PAIGE & SOULCIAL CLUB",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • July 19",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "SIERRA & GREEN NOTES",
+          "photo": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
+          "alt": "Sierra Green promo photo",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "GABE STILLMAN BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM IN THE WIND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • July 23",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "DAPPER DANDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • July 24",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & THE R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Saturday • July 25",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "ANDRE LOVETT BAND",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "SUGAR & THE DADDIES",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "FLEURTATIONS",
+          "photo": "",
+          "alt": "",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Sunday • July 26",
+      "shows": [
+        {
+          "time": "3:00 PM – 5:30 PM",
+          "artist": "DEEJ FLAVA & MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MAURICE CADE & ESS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KIM IN THE WIND",
+          "photo": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
+          "alt": "Kim Inda Wind Band thumbnail",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Thursday • July 30",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "TBA",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "KAT KILEY EXPERIENCE",
+          "photo": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
+          "alt": "Kat Kiley Experience promo photo",
+          "headliner": true
+        }
+      ]
+    },
+    {
+      "date": "Friday • July 31",
+      "shows": [
+        {
+          "time": "6:00 PM – 8:30 PM",
+          "artist": "MOTHER RUCKUS",
+          "photo": "",
+          "alt": "",
+          "headliner": false
+        },
+        {
+          "time": "9:00 PM – 11:30 PM",
+          "artist": "BIG MIKE & R&B KINGS",
+          "photo": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
+          "alt": "Big Mike and the R&B Kings promo photo",
           "headliner": true
         }
       ]
