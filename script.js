@@ -69,9 +69,37 @@ const ARTIST_PHOTO_ASSETS = {
   "LOUISIANA PARISH LINE": [
     LOUISIANA_PARISH_LINE_PHOTO
   ],
+  "PARISH LINE": [
+    LOUISIANA_PARISH_LINE_PHOTO
+  ],
   "ASHLEY PAIGE & THE SOULCIAL CLUB": [
     "assets/artists/ashley-paige-soulcial-club.jpg",
     "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
+  ],
+  "ASHLEY PAIGE & SOULCIAL CLUB": [
+    "assets/artists/ashley-paige-soulcial-club.jpg",
+    "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
+  ],
+  "KIM IN THE WIND": [
+    "assets/artists/kim-in-the-wind.webp"
+  ],
+  "KIM IN THE WIND BAND": [
+    "assets/artists/kim-in-the-wind.webp"
+  ],
+  "BIG MIKE & THE R&B KINGS": [
+    "assets/artists/big-mike-rb-kings.webp"
+  ],
+  "BIG MIKE & R&B KINGS": [
+    "assets/artists/big-mike-rb-kings.webp"
+  ],
+  "KAT KILEY EXPERIENCE": [
+    "assets/artists/kat-kiley-experience.webp"
+  ],
+  "SIERRA GREEN": [
+    "assets/artists/sierra-green.jpg"
+  ],
+  "SIERRA & GREEN NOTES": [
+    "assets/artists/sierra-green.jpg"
   ]
 };
 
@@ -282,7 +310,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=20260624-louisiana-parish-line", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=202607-calendar", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
