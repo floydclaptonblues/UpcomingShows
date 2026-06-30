@@ -13,7 +13,7 @@ const ASHLEY_PAIGE_ARTIST = "Ashley Paige & The Soulcial Club";
 const T_MARIE_BAYOU_JUJU_ARTIST = "T Marie & Bayou JuJu";
 const T_MARIE_BAYOU_JUJU_PHOTO = "assets/artists/IMG_20260616_235511.png";
 const LOUISIANA_PARISH_LINE_ARTIST = "Louisiana Parish Line";
-const LOUISIANA_PARISH_LINE_PHOTO = "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG";
+const LOUISIANA_PARISH_LINE_PHOTO = "assets/artists/Louisiana%20Parish%20Line.png";
 
 const MONTH_INDEX = {
   JANUARY: 0,
@@ -40,14 +40,17 @@ const ARTIST_PHOTO_ASSETS = {
     "assets/artists/Dapper%20Dandies.jpg"
   ],
   "MAURICE CADE & ESS": [
+    "assets/artists/Maurice%20Cade%20%26%20ESS%20Sunday%206pm.jpg",
     "assets/artists/maurice-cade-ess.jpg",
     "assets/artists/Maurice%20Cade.jpg"
   ],
   "MOTHER RUCKUS": [
+    "assets/artists/Mother%20Ruckus.png",
     "assets/artists/mother-ruckus.jpg",
     "assets/artists/Mother%20Ruckus.jpg"
   ],
   "DEEJ FLAVA & MOTHER RUCKUS": [
+    "assets/artists/Mother%20Ruckus.png",
     "assets/artists/mother-ruckus.jpg",
     "assets/artists/Mother%20Ruckus.jpg"
   ],
@@ -67,18 +70,46 @@ const ARTIST_PHOTO_ASSETS = {
     T_MARIE_BAYOU_JUJU_PHOTO
   ],
   "LOUISIANA PARISH LINE": [
-    LOUISIANA_PARISH_LINE_PHOTO
+    LOUISIANA_PARISH_LINE_PHOTO,
+    "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG"
   ],
   "PARISH LINE": [
-    LOUISIANA_PARISH_LINE_PHOTO
+    LOUISIANA_PARISH_LINE_PHOTO,
+    "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG"
   ],
   "ASHLEY PAIGE & THE SOULCIAL CLUB": [
+    "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.jpeg",
     "assets/artists/ashley-paige-soulcial-club.jpg",
     "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
   ],
   "ASHLEY PAIGE & SOULCIAL CLUB": [
+    "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.jpeg",
     "assets/artists/ashley-paige-soulcial-club.jpg",
     "assets/artists/Ashley%20Paige%20and%20the%20Soulcial%20Club.webp"
+  ],
+  "FUNKY SOLES": [
+    "assets/artists/Funky%20Soles%20Featuring%20Tahj%20Derosier.png"
+  ],
+  "FUNKY SOLES FEATURING TAHJ DEROSIER": [
+    "assets/artists/Funky%20Soles%20Featuring%20Tahj%20Derosier.png"
+  ],
+  "ADO SOUL & THE TRIBE": [
+    "assets/artists/Ado%20Soul%20Tribe.png"
+  ],
+  "ADO SOUL TRIBE": [
+    "assets/artists/Ado%20Soul%20Tribe.png"
+  ],
+  "YUNG DEX BRASS BAND": [
+    "assets/artists/Yung%20Dex%20Ya%20Feel%20Me%20Brass%20Band.png"
+  ],
+  "GABE STILLMAN BAND": [
+    "assets/artists/Gabe%20Stillman.png"
+  ],
+  "GABE STILLMAN": [
+    "assets/artists/Gabe%20Stillman.png"
+  ],
+  "THEE PLAYMATEZ": [
+    "assets/artists/Thee%20PlayMateZ.png"
   ],
   "KIM IN THE WIND": [
     "assets/artists/kim-in-the-wind.webp"
