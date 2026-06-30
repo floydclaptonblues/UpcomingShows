@@ -102,6 +102,9 @@ const ARTIST_PHOTO_ASSETS = {
   "YUNG DEX BRASS BAND": [
     "assets/artists/Yung%20Dex%20Ya%20Feel%20Me%20Brass%20Band.png"
   ],
+  "YUNG DEX YA FEEL ME BRASS BAND": [
+    "assets/artists/Yung%20Dex%20Ya%20Feel%20Me%20Brass%20Band.png"
+  ],
   "GABE STILLMAN BAND": [
     "assets/artists/Gabe%20Stillman.png"
   ],
@@ -109,6 +112,21 @@ const ARTIST_PHOTO_ASSETS = {
     "assets/artists/Gabe%20Stillman.png"
   ],
   "THEE PLAYMATEZ": [
+    "assets/artists/Thee%20PlayMateZ.png"
+  ],
+  "THEEPLAYMATEZ": [
+    "assets/artists/Thee%20PlayMateZ.png"
+  ],
+  "THEE FONK": [
+    "assets/artists/Thee%20PlayMateZ.png"
+  ],
+  "THEE FONK JAM": [
+    "assets/artists/Thee%20PlayMateZ.png"
+  ],
+  "THEE FONK JAM FEAT. TAMARIET": [
+    "assets/artists/Thee%20PlayMateZ.png"
+  ],
+  "THEE FONK JAM FEAT TAMARIET": [
     "assets/artists/Thee%20PlayMateZ.png"
   ],
   "KIM IN THE WIND": [
