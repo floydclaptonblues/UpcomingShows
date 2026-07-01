@@ -14,6 +14,8 @@ const T_MARIE_BAYOU_JUJU_ARTIST = "T Marie & Bayou JuJu";
 const T_MARIE_BAYOU_JUJU_PHOTO = "assets/artists/IMG_20260616_235511.png";
 const LOUISIANA_PARISH_LINE_ARTIST = "Louisiana Parish Line";
 const LOUISIANA_PARISH_LINE_PHOTO = "assets/artists/Louisiana%20Parish%20Line.png";
+const JOHN_LISI_DELTA_FUNK_ARTIST = "JOHN LISI & DELTA FUNK";
+const JOHN_LISI_DELTA_FUNK_PHOTO = "https://images.squarespace-cdn.com/content/v1/5872a05fb8a79b5c39e888e8/1570220588454-ROAJNS29CYDX7TFZ3B09/johnlisi.jpg?format=1000w";
 
 const MONTH_INDEX = {
   JANUARY: 0,
@@ -105,6 +107,12 @@ const ARTIST_PHOTO_ASSETS = {
   "YUNG DEX YA FEEL ME BRASS BAND": [
     "assets/artists/Yung%20Dex%20Ya%20Feel%20Me%20Brass%20Band.png"
   ],
+  "JOHN LISI & DELTA FUNK": [
+    JOHN_LISI_DELTA_FUNK_PHOTO
+  ],
+  "JOHN LISI AND DELTA FUNK": [
+    JOHN_LISI_DELTA_FUNK_PHOTO
+  ],
   "GABE STILLMAN BAND": [
     "assets/artists/Gabe%20Stillman.png"
   ],
@@ -189,6 +197,31 @@ function applyManagementCorrections(data) {
           show.artist = T_MARIE_BAYOU_JUJU_ARTIST;
           show.photo = T_MARIE_BAYOU_JUJU_PHOTO;
           show.alt = "T Marie & Bayou JuJu promo photo";
+        }
+      });
+    }
+
+    if (day.date === "Saturday • July 4") {
+      (day.shows || []).forEach((show) => {
+        if (show.time === "6:00 PM – 8:30 PM") {
+          show.artist = JOHN_LISI_DELTA_FUNK_ARTIST;
+          show.photo = JOHN_LISI_DELTA_FUNK_PHOTO;
+          show.alt = "John Lisi & Delta Funk promo photo";
+          show.headliner = false;
+        }
+      });
+    }
+
+    if (day.date === "Saturday • July 11") {
+      (day.shows || []).forEach((show) => {
+        if (show.time === "6:00 PM – 8:30 PM") {
+          show.headliner = false;
+        }
+        if (show.time === "9:00 PM – 11:30 PM") {
+          show.artist = JOHN_LISI_DELTA_FUNK_ARTIST;
+          show.photo = JOHN_LISI_DELTA_FUNK_PHOTO;
+          show.alt = "John Lisi & Delta Funk promo photo";
+          show.headliner = true;
         }
       });
     }
@@ -359,7 +392,7 @@ function render(data) {
 
 async function loadScheduleData() {
   try {
-    const response = await fetch("./shows.json?v=202607-calendar", { cache: "no-store" });
+    const response = await fetch("./shows.json?v=20260701-john-lisi-management", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`shows.json returned ${response.status}`);
     }
