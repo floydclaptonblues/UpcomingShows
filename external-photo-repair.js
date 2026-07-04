@@ -1,13 +1,20 @@
 (() => {
   const PHOTO_MAP = {
+    "TROPICAL WEATHER": "assets/artists/tropical-weather.jpg",
+    "JAM BRASS BAND": "assets/artists/jam-brass-band.jpg",
+    "JOSH BENITEZ BAND": "assets/artists/josh-benitez-band.jpg",
+    "LEROY MARSHALL BAND": "assets/artists/leroy-marshall-band.jpg",
+    "LEROY MARSHAL BAND": "assets/artists/leroy-marshall-band.jpg",
+    "JON RONIGER": "assets/artists/jon-roniger.jpg",
+    "FLEURTATIONS": "assets/artists/fleurtations.jpg",
+    "THE FLEURTATIONS": "assets/artists/fleurtations.jpg",
     "KAT KILEY EXPERIENCE": "https://images.squarespace-cdn.com/content/v1/5e08ffd9d89e7165b5a11246/1717437775819-8MHDQ8109RFUSOKV5KSZ/IMG_1324.JPG?format=2500w",
     "BIG MIKE & THE R&B KINGS": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
     "BIG MIKE & R&B KINGS": "https://img1.wsimg.com/isteam/ip/6d08c726-0aaa-4277-b580-c90403ae5f09/FB_IMG_1768786004376.jpg/:/cr=t:12.49%25,l:0%25,w:100%25,h:75.02%25/rs=w:2048,h:1024,cg:true",
     "KIM IN THE WIND": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
     "KIM IN THE WIND BAND": "https://i.ytimg.com/vi/T50uynNUKmo/hqdefault.jpg",
     "SIERRA GREEN": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
-    "SIERRA & GREEN NOTES": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg",
-    "JOSH BENITEZ BAND": "https://f4.bcbits.com/img/0019269648_10.jpg"
+    "SIERRA & GREEN NOTES": "https://www.gigsalad.com/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cheight%3D516%2Cwidth%3D917/s3/s/sierra_green_the_soul_machine_new_orleans/630ed47c61433.jpeg"
   };
 
   function key(value) {
