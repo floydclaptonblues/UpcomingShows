@@ -3,7 +3,7 @@ const BMC_LINKS = {
   shows: "https://shows.balconymusicclub.com/",
   host: "https://balconymusicclub.com/host-your-event",
   store: "https://balconymusicclub.com/store",
-  jazzycat: "https://floydclaptonblues.github.io/JazzyCatBotAI/ask-jazzycat/?v=939349b2",
+  jazzycat: "https://balconymusicclub.com/ask-jazzycat",
   instagram: "https://www.instagram.com/balconymusicclub_504",
   youtube: "https://youtube.com/@officialbmcneworleans504?si=xQkUAVLCyHDpRHFb",
   facebook: "https://www.facebook.com/share/1TirbYYtqN/?mibextid=wwXIfr",
