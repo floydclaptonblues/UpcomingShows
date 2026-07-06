@@ -18,9 +18,9 @@ const BMC_PUZZLE_BACKGROUND_MEDIA = [
   { type: "image", src: "assets/background/bmc-main-room-wide.jpg" },
   { type: "image", src: "assets/background/bmc-patio-sign.jpg" },
   { type: "image", src: "assets/background/bmc-empty-stage.jpg" },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
-  { type: "gif", src: "assets/background/trumpet-cat.gif", pixel: true, accent: true },
+  { type: "image", src: "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/bands/bmc-band-assets/assets/bands/Tropical%20Weather.png", accent: true },
+  { type: "image", src: "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/bands/bmc-band-assets/assets/bands/Jam%20Brass%20Band%20Thursday%20%281%29.jpg", accent: true },
+  { type: "image", src: "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/bands/bmc-band-assets/assets/bands/Josh%20Benitez%20Band%20Sunday.png", accent: true },
   { type: "gif", src: "assets/background/pixel-jazz-bar.gif", pixel: true, accent: true },
   { type: "gif", src: "assets/background/pixel-nola.gif", pixel: true }
 ];
@@ -157,4 +157,52 @@ const BMC_PUZZLE_MOBILE_SLOTS = [
   });
 
   start();
+})();
+
+(function mountBmcUpcomingUfoBackdrop() {
+  if (document.getElementById("bmc-upcoming-ufo-backdrop")) return;
+
+  const frame = document.querySelector(".bmc-frame");
+  if (!frame) return;
+
+  const style = document.createElement("style");
+  style.id = "bmc-upcoming-ufo-backdrop-style";
+  style.textContent = `
+    .bmc-frame{position:relative!important;z-index:4!important}
+    .bmc-hero,.bmc-calendar,.bmc-top-media{position:relative!important;z-index:2!important}
+    #bmc-upcoming-ufo-backdrop{
+      position:absolute;
+      left:50%;
+      top:clamp(172px,26vh,280px);
+      z-index:1;
+      width:clamp(320px,54vw,820px);
+      transform:translateX(-50%) rotate(-3deg);
+      opacity:.50;
+      pointer-events:none;
+      filter:drop-shadow(0 0 18px rgba(94,230,255,.48)) drop-shadow(0 0 34px rgba(255,216,87,.24));
+      animation:bmcUpcomingUfoDrift 14s ease-in-out infinite alternate;
+      will-change:transform;
+    }
+    #bmc-upcoming-ufo-backdrop img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+    @keyframes bmcUpcomingUfoDrift{
+      0%{transform:translateX(-50%) translateY(0) rotate(-4deg) scale(1)}
+      33%{transform:translateX(-46%) translateY(18px) rotate(2deg) scale(1.03)}
+      66%{transform:translateX(-54%) translateY(-12px) rotate(-1deg) scale(.99)}
+      100%{transform:translateX(-50%) translateY(24px) rotate(3deg) scale(1.02)}
+    }
+    @media(max-width:720px){#bmc-upcoming-ufo-backdrop{top:clamp(150px,20vh,220px);width:clamp(250px,78vw,430px);opacity:.38}}
+    @media(prefers-reduced-motion:reduce){#bmc-upcoming-ufo-backdrop{animation:none;opacity:.34}}
+  `;
+  document.head.appendChild(style);
+
+  const ufo = document.createElement("div");
+  ufo.id = "bmc-upcoming-ufo-backdrop";
+  ufo.setAttribute("aria-hidden", "true");
+  const img = document.createElement("img");
+  img.src = "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/venue/bmc_jazzycat_ufo_360_rotation.gif?v=20260705-upcoming-calendar-backdrop";
+  img.alt = "";
+  img.decoding = "async";
+  img.loading = "lazy";
+  ufo.appendChild(img);
+  frame.insertBefore(ufo, frame.firstChild);
 })();
