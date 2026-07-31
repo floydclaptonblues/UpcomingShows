@@ -1,5 +1,6 @@
 (() => {
   const PWA_BAND_ASSET_BASE = "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/bands/bmc-band-assets/assets/bands/";
+  const BMC_MURAL_FALLBACK = "https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/venue/20260213_212259%20(1).jpg?v=20260730-band-fallback";
   const PHOTO_MAP = {
     "TROPICAL WEATHER": `${PWA_BAND_ASSET_BASE}Tropical%20Weather.png`,
     "JAM BRASS BAND": `${PWA_BAND_ASSET_BASE}Jam%20Brass%20Band%20Thursday%20%281%29.jpg`,
@@ -26,15 +27,24 @@
       .toUpperCase();
   }
 
-  function makeImage(artist, src) {
+  function makeImage(artist, src, isFallback = false) {
     const img = document.createElement("img");
     img.className = "bmc-photo";
     img.loading = "lazy";
     img.decoding = "async";
     img.src = src;
-    img.alt = `${artist} promo photo`;
-    img.dataset.photoRepair = "external";
+    img.alt = isFallback
+      ? `Balcony Music Club mural — fallback image for ${artist}`
+      : `${artist} promo photo`;
+    img.dataset.photoRepair = isFallback ? "mural-fallback" : "external";
     img.onerror = () => {
+      if (img.dataset.photoRepair !== "mural-fallback") {
+        img.dataset.photoRepair = "mural-fallback";
+        img.src = BMC_MURAL_FALLBACK;
+        img.alt = `Balcony Music Club mural — fallback image for ${artist}`;
+        return;
+      }
+
       const placeholder = document.createElement("span");
       placeholder.className = "bmc-photo bmc-photo-placeholder";
       placeholder.setAttribute("aria-hidden", "true");
@@ -51,18 +61,28 @@
       if (!artistEl || !block) return;
 
       const artist = artistEl.textContent.trim();
-      const src = PHOTO_MAP[key(artist)];
-      if (!src) return;
-
+      const mappedSrc = PHOTO_MAP[key(artist)];
       const current = block.querySelector(".bmc-photo");
-      if (current && current.tagName === "IMG" && current.dataset.photoRepair === "external" && current.getAttribute("src") === src) return;
 
-      const replacement = makeImage(artist, src);
-      if (current) {
-        current.replaceWith(replacement);
-      } else {
-        block.insertBefore(replacement, block.firstChild);
+      if (mappedSrc) {
+        if (
+          current &&
+          current.tagName === "IMG" &&
+          current.dataset.photoRepair === "external" &&
+          current.getAttribute("src") === mappedSrc
+        ) return;
+
+        const replacement = makeImage(artist, mappedSrc, false);
+        if (current) current.replaceWith(replacement);
+        else block.insertBefore(replacement, block.firstChild);
+        return;
       }
+
+      if (current && current.tagName === "IMG") return;
+
+      const fallback = makeImage(artist, BMC_MURAL_FALLBACK, true);
+      if (current) current.replaceWith(fallback);
+      else block.insertBefore(fallback, block.firstChild);
     });
   }
 
