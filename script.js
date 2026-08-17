@@ -157,6 +157,36 @@ const ARTIST_PHOTO_ASSETS = {
   ],
   "SIERRA & GREEN NOTES": [
     "assets/artists/sierra-green.jpg"
+  ],
+  "DANNY RAY & THE ELECTRIC BARRELHOUSE": [
+    "assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg?v=20260817-band-art"
+  ],
+  "DANNY RAY & ELECTRIC BARRELHOUSE": [
+    "assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg?v=20260817-band-art"
+  ],
+  "DANNY RAY AND THE ELECTRIC BARRELHOUSE": [
+    "assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg?v=20260817-band-art"
+  ],
+  "ELECTRIC BARREL HOUSE": [
+    "assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg?v=20260817-band-art"
+  ],
+  "ELECTRIC BARRELHOUSE": [
+    "assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg?v=20260817-band-art"
+  ],
+  "R&R SMOKIN' FOUNDATION": [
+    "assets/artists/R%26R%20Smokin%27%20Foundation.jpeg?v=20260817-band-art"
+  ],
+  "R&R SMOKIN FOUNDATION": [
+    "assets/artists/R%26R%20Smokin%27%20Foundation.jpeg?v=20260817-band-art"
+  ],
+  "R&R SMOKING FOUNDATION": [
+    "assets/artists/R%26R%20Smokin%27%20Foundation.jpeg?v=20260817-band-art"
+  ],
+  "THE CURTIS FAMILY": [
+    "assets/artists/The%20Curtis%20Family.jpeg?v=20260817-band-art"
+  ],
+  "CURTIS FAMILY": [
+    "assets/artists/The%20Curtis%20Family.jpeg?v=20260817-band-art"
   ]
 };
 
