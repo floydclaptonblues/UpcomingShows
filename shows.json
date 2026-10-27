@@ -3,8 +3,8 @@
   "month": "October 2026",
   "title": "Upcoming Shows",
   "subtitle": "October 2026 • Balcony Music Club",
-  "last_updated": "2026-10-01",
-  "source_note": "Revised October 2026 management schedule supplied October 1, 2026; supersedes the September 28 version. All 47 listed slots across 19 dates are retained. The blank October 10 and October 31 6 PM artist slots are TBA. Artist billings are preserved as supplied. Start times are supplied; end times retain the existing 2.5-hour calendar slot convention and are not newly confirmed. All times America/Chicago.",
+  "last_updated": "2026-10-27",
+  "source_note": "Revised October 2026 management schedule supplied October 1, 2026; supersedes the September 28 version. October 27 owner update: Epic Funk Brass Band performs October 31 at 6 PM; October 10 at 6 PM remains TBA. All 47 listed slots across 19 dates are retained. Artist billings are preserved as supplied or subsequently updated by the owner. Start times are supplied; end times retain the existing 2.5-hour calendar slot convention and are not newly confirmed. All times America/Chicago.",
   "shows": [
     {"date":"Thursday • October 1","shows":[{"time":"6:00 PM – 8:30 PM","artist":"DAPPER DANDIES","photo":"assets/artists/dapper-dandies.jpg","alt":"DAPPER DANDIES promo photo","headliner":false},{"time":"9:00 PM – 11:30 PM","artist":"KAT KILEY EXPERIENCE","photo":"","alt":"","headliner":true}]},
     {"date":"Friday • October 2","shows":[{"time":"6:00 PM – 8:30 PM","artist":"ELECTRIC BARRELHOUSE","photo":"assets/artists/Danny%20Ray%20%26%20Electric%20Barrelhouse.jpeg","alt":"ELECTRIC BARRELHOUSE promo photo","headliner":false},{"time":"9:00 PM – 11:30 PM","artist":"BIG MIKE & RB KINGS","photo":"","alt":"","headliner":true}]},
