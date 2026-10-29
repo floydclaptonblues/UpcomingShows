@@ -462,3 +462,5 @@ img {
     scroll-behavior: auto !important;
   }
 }
+/* Venue closure is distinct from a scheduled music performance. */
+.bmc-closure { padding: 18px 16px; border: 1px solid rgba(255,216,87,.55); border-radius: 10px; background: rgba(60,28,49,.68); color: #fff3da; font-size: 1rem; font-weight: 800; letter-spacing: .02em; }

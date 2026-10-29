@@ -404,6 +404,7 @@ function render(data) {
     <article class="bmc-day">
       <h2 class="bmc-date">${escapeHtml(day.date)}</h2>
       <div class="bmc-events">
+        ${day.closed ? `<p class="bmc-closure">${escapeHtml(day.notice || 'Closed — no performances scheduled.')}</p>` : ''}
         ${(day.shows || []).map(show => `
           <div class="bmc-event${show.headliner ? " is-headliner" : ""}">
             <div class="bmc-time">${escapeHtml(show.time)}</div>
