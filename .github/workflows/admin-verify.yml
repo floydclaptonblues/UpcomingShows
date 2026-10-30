@@ -1,0 +1,22 @@
+name: Verify GitHub-native admin
+on:
+  push:
+    branches: [feature/github-native-admin-20261030]
+    paths: ['admin/**','shows.json','script.js','tests/**','.github/workflows/admin-verify.yml']
+  pull_request:
+    paths: ['admin/**','shows.json','script.js','tests/**','.github/workflows/admin-verify.yml']
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check admin/admin.js
+      - run: node --check admin/config.js
+      - run: node --check script.js
+      - run: node tests/verify-admin.mjs

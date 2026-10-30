@@ -425,6 +425,7 @@ $('notice-form').addEventListener('submit',e=>run(async()=>{
   e.preventDefault();
   const next=cloneData();
   next.announcement=field($('notice-form'),'announcement').value.trim();
+  next.last_updated=new Date().toISOString().slice(0,10);
   await writeDocument(next,'change calendar announcement');
 }));
 $('closure-form').addEventListener('submit',e=>run(()=>saveClosure(e)));
