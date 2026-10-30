@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://shows.balconymusicclub.com; connect-src https://api.github.com; form-action 'none'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'">
+  <title>Music Calendar Administration</title>
+  <link rel="stylesheet" href="./admin.css">
+  <script src="./config.js" defer></script>
+  <script src="./admin.js" defer></script>
+</head>
+<body>
+  <header class="mast">
+    <div><p class="eyebrow">GitHub-native publishing</p><h1 id="brand">Music Calendar Administration</h1>
+      <p>Manage shows, photos and announcements without editing code.</p></div>
+    <div class="mast-actions"><a id="public-site" href="../index.html">View public site</a><button type="button" id="lock" hidden>Lock editor</button></div>
+  </header>
+  <main>
+    <section class="panel intro" id="setup" hidden>
+      <h2>One-time setup on this browser</h2>
+      <p>Use a fine-grained GitHub token with <strong>Contents: Read and write</strong> for the indicated content repository only. A GitHub account password is never used. The token will be encrypted locally with your passphrase; it will not be committed to GitHub.</p>
+      <p id="repo-label"></p>
+      <form id="setup-form">
+        <label>Fine-grained GitHub token<input name="token" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_..." /></label>
+        <label>Create a strong passphrase (minimum 14 characters)<input name="passphrase" type="password" autocomplete="new-password" minlength="14" required /></label>
+        <label>Repeat passphrase<input name="confirm" type="password" autocomplete="new-password" minlength="14" required /></label>
+        <button>Encrypt token and open editor</button>
+      </form>
+    </section>
+    <section class="panel intro" id="unlock" hidden>
+      <h2>Unlock content editor</h2>
+      <p>Your GitHub token is encrypted on this device. Enter the passphrase to decrypt it for this browser tab.</p>
+      <form id="unlock-form">
+        <label>Admin passphrase<input name="passphrase" type="password" autocomplete="current-password" required /></label>
+        <div class="actions"><button>Unlock</button><button type="button" class="secondary" id="reset-vault">Reset stored token</button></div>
+      </form>
+    </section>
+    <section id="workspace" hidden>
+      <div class="banner"><span id="session-label">Signed in locally</span><span id="repo-state"></span></div>
+      <div class="layout">
+        <section class="panel">
+          <div class="heading"><h2 id="form-heading">Add performance</h2><button type="button" class="secondary" id="clear-show">New</button></div>
+          <form id="show-form">
+            <div class="two">
+              <label>Show date<input type="date" name="date" required></label>
+              <label id="start-label">Start time<input type="time" name="start" required></label>
+            </div>
+            <div id="bmc-fields">
+              <div class="two"><label>End time<input type="time" name="end" required></label>
+              <label class="check"><input type="checkbox" name="headliner"> Headlining show</label></div>
+            </div>
+            <label id="artist-label">Band or event name<input name="artist" required maxlength="160" list="existing-artists" placeholder="Type the band's name"></label>
+            <datalist id="existing-artists"></datalist>
+            <div id="sierra-fields" hidden>
+              <div class="two"><label>Venue<input name="venue" maxlength="160"></label><label>City, state<input name="location" maxlength="160"></label></div>
+              <label>Displayed time (e.g. 10:00 PM–Close)<input name="timeText" maxlength="100"></label>
+            </div>
+            <label>Band photo / promotional image path<input name="photo" maxlength="600" placeholder="Choose Upload photo below, or keep existing image"></label>
+            <label>Alternative text for image<input name="alt" maxlength="250"></label>
+            <div class="actions"><button id="save-show" type="submit">Save and publish show</button><button type="button" class="secondary" id="cancel-edit">Clear</button></div>
+          </form>
+        </section>
+        <section class="panel">
+          <h2>Upload band photo</h2>
+          <p>Images are stored in this repository. Once uploaded, the picture is attached to the current show form. Save the show to display it publicly. Max 2 MB; JPEG, PNG or WebP.</p>
+          <form id="photo-form">
+            <label>Select an image<input name="image" type="file" accept="image/jpeg,image/png,image/webp" required></label>
+            <button type="submit">Upload photo to GitHub</button>
+          </form>
+          <div id="preview"></div>
+          <hr>
+          <h2>Site announcement</h2>
+          <p>Optional message above the public performance calendar.</p>
+          <form id="notice-form">
+            <label>Announcement<textarea name="announcement" rows="3" maxlength="500" placeholder="Leave blank to hide the announcement"></textarea></label>
+            <button type="submit">Publish announcement</button>
+          </form>
+          <div id="closure-panel">
+            <hr>
+            <h2>Venue closure</h2>
+            <p>A closure is a day without performances, not an artist named CLOSED.</p>
+            <form id="closure-form">
+              <label>Closed date<input name="date" type="date" required></label>
+              <label>Closure message<input name="notice" maxlength="250" placeholder="Closed for Thanksgiving" required></label>
+              <div class="actions"><button>Mark venue closed</button><button class="secondary" type="button" id="remove-closure">Reopen this date</button></div>
+            </form>
+          </div>
+        </section>
+        <section class="panel wide">
+          <div class="heading"><h2>Schedule</h2><div class="actions"><select id="month-filter" aria-label="Filter calendar by month"></select><button type="button" id="refresh" class="secondary">Reload from GitHub</button></div></div>
+          <p>Select Edit to revise a show, Copy to repeat it, or Remove to cancel its listing. Each publish creates a GitHub commit; the full previous schedule remains in Git history.</p>
+          <div id="schedule-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <div id="status" role="status" aria-live="polite"></div>
+  <footer>Encrypted token stays in this browser. Access to this URL alone does not grant publishing permission. Use only on a trusted device.</footer>
+</body>
+</html>
