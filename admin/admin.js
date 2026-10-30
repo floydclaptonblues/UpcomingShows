@@ -152,6 +152,7 @@ function clearForm(date = '') {
   field(showForm,'date').value=date;
   field(showForm,'photo').value='';
   field(showForm,'alt').value='';
+  if (c.mode==='bmc') field(showForm,'propagatePhoto').checked=true;
   $('preview').replaceChildren();
 }
 function editEntry(entry,copy=false){
@@ -235,6 +236,16 @@ async function saveShow(event){
     next.shows.push(show);
     next.shows.sort((a,b)=>a.date.localeCompare(b.date)||(a.start||'').localeCompare(b.start||''));
     next.last_updated=new Date().toISOString().slice(0,10);
+  }
+  if (c.mode==='bmc' && photo && field(f,'propagatePhoto').checked) {
+    for (const day of next.shows) {
+      for (const event of day.shows || []) {
+        if (event.artist.toLocaleLowerCase()===artist.toLocaleLowerCase()) {
+          event.photo=photo;
+          event.alt=alt;
+        }
+      }
+    }
   }
   await writeDocument(next,(state.editing?'update ':'add ')+artist+' '+iso);
   clearForm();
@@ -364,6 +375,7 @@ async function openEditor() {
   $('session-label').textContent='Unlocked locally · '+c.repository;
   if(c.mode==='sierra'){
     $('bmc-fields').hidden=true;$('closure-panel').hidden=true;$('sierra-fields').hidden=false;
+    $('photo-propagate').hidden=true;
     field(showForm,'end').required=false;
     $('start-label').firstChild.textContent='Sort time (24-hour)';
   }

@@ -288,6 +288,9 @@ function todayKeyForVenue() {
 }
 
 function showDayKey(day, data) {
+  if (typeof day.isoDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day.isoDate)) {
+    return Number(day.isoDate.replaceAll('-', ''));
+  }
   const match = String(day.date || "").match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b/i);
   if (!match) {
     return null;
