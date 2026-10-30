@@ -288,6 +288,9 @@ function todayKeyForVenue() {
 }
 
 function showDayKey(day, data) {
+  if (typeof day.isoDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day.isoDate)) {
+    return Number(day.isoDate.replaceAll('-', ''));
+  }
   const match = String(day.date || "").match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\b/i);
   if (!match) {
     return null;
@@ -323,15 +326,11 @@ function photoCandidates(show) {
   const existingPhoto = String(show.photo || "").trim();
   const localAssets = ARTIST_PHOTO_ASSETS[artistKey(show.artist)] || [];
 
+  // Uploaded/selected photo in shows.json is authoritative; legacy artist mapping is a fallback.
+  if (existingPhoto) candidates.push(existingPhoto);
   localAssets.forEach((path) => {
-    if (path && !candidates.includes(path)) {
-      candidates.push(path);
-    }
+    if (path && !candidates.includes(path)) candidates.push(path);
   });
-
-  if (existingPhoto && !candidates.includes(existingPhoto)) {
-    candidates.push(existingPhoto);
-  }
 
   return candidates;
 }
@@ -400,7 +399,8 @@ function render(data) {
     return;
   }
 
-  calendar.innerHTML = days.map(day => `
+  const announcement = String(data.announcement || '').trim();
+  calendar.innerHTML = (announcement ? `<p class="bmc-closure">${escapeHtml(announcement)}</p>` : '') + days.map(day => `
     <article class="bmc-day">
       <h2 class="bmc-date">${escapeHtml(day.date)}</h2>
       <div class="bmc-events">
